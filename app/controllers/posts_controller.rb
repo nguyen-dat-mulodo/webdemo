@@ -10,10 +10,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    #byebug
     @post = Post.new
-    #p @post
-
   end
 
   def edit

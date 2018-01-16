@@ -5,6 +5,13 @@
   <%= @post.title %>
 </p>
 
+<%= link_to(image_tag(@post.image.url(:medium), alt: 'Image'), @post.image.url, target: '_blank') if @post.image.present? %>
+
+<p>
+	<strong>Quantity:</strong>
+	<%= @post.quantity%>
+</p>
+
 <p>
   <strong>Content:</strong>
   <%= @post.content %>

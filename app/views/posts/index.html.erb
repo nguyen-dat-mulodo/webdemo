@@ -5,6 +5,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Title</th>
+      <th scope="col">Image</th>
       <th scope="cold">Quantity</th>
       <th scope="col">Content</th>
       <th scope="col" colspan="3"></th>
@@ -15,6 +16,7 @@
     <% @posts.each do |post| %>
     <tr>
       <td><%= post.title %></td>
+      <td><%= link_to(image_tag(post.image.url(:thumb), alt: 'Image'), post.image.url, target: '_blank') if post.image.present? %></td>
       <td><%= post.quantity%></td>
       <td><%= post.content %></td>
       <td><%= link_to('Show', post) %></td>

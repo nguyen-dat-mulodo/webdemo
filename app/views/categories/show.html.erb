@@ -1,0 +1,25 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @category.description%>
+</p>
+
+<ul id="products">
+    <%= @category.products.each do |product| %>
+    <li>
+        <%= link_to product.title, [@category, product] %>
+    </li>
+    <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_category_path(@category) %> | 
+<%= link_to "Delete Category", category_path(@category), method: :delete, data: {confirm: "Are you sure you want to delete this category?"} %> |
+<%= link_to 'Back', categories_path %> |
+<%= link_to "New Product", new_category_product_path(@category) %>

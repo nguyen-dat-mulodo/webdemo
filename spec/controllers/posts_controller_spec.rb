@@ -7,7 +7,6 @@ RSpec.describe PostsController, :type => :controller do
       post = FactoryGirl.create(:post)
       get :index
       expect(assigns(:posts)).to eq([post])
-      #assert_equal Post.all, assigns(:posts)
     end
 
     it "renders the index template" do
@@ -85,7 +84,7 @@ RSpec.describe PostsController, :type => :controller do
       end
     end
     
-    context "when attributes is valid invalid" do
+    context "when attributes is invalid" do
       it "assigns requested @post" do
         put :update, params: { id: @post, post: FactoryGirl.attributes_for(:post, title: nil, content: nil) }
         expect(assigns(:post)).to eq(@post)      

@@ -7,7 +7,7 @@ feature "#Post management" do
     find('ul[@class="menu"]').click_link("Post")
   end
 
-  given!(:post)    { Post.create!(title: 'Post title 1', content: 'Post content 1.', quantity: 1) }
+  given!(:post) { Post.create!(title: 'Post title 1', content: 'Post content 1.', quantity: 1) }
 
   scenario "show" do
     visit posts_path

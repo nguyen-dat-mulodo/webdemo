@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def to_s
-      "#{email} (#{admin? ? "Admin" : "User"})" 
+    "#{email} (#{admin? ? "Admin" : "User"})" 
   end
 end

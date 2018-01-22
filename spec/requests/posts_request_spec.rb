@@ -17,4 +17,21 @@ RSpec.describe "Post management", :type => :request do
     get post_path(@post.id)
     expect(response).to render_template(:show)
   end
+
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    login_as(@user, :scope => :user)
+  end
+
+  it "creates a Post and renders the show template" do
+    get "/posts/new"
+    expect(response).to render_template(:new)
+
+    post "/posts", params: { post: { title: "Post title", content: "Post content 10", quantity: 10 } }
+    expect(response).to redirect_to(assigns(:post))
+    follow_redirect!
+
+    expect(response).to render_template(:show)
+    expect(response.body).to include("Post was successfully created.")
+  end
 end

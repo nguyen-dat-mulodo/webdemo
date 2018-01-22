@@ -39,6 +39,12 @@ RSpec.describe "Post management", :type => :request do
     @post = FactoryGirl.create(:post)
     put post_path(@post.id, post: FactoryGirl.attributes_for(:post, title: "New Title"))
     @post.reload
-    @post.title.should eq("New Title")
+    expect(@post.title).to eq("New Title")
+  end
+
+  it "delete Post" do
+    @post = FactoryGirl.create(:post)
+    delete post_path(@post.id)
+    expect(response).to redirect_to posts_url
   end
 end

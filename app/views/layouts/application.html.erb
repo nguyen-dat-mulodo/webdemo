@@ -16,7 +16,7 @@
   </head>
 
   <body background="<%= image_path( "background.png" ) %>">
-  	<div class="container">
+    <div class="container">
       <nav>
         <% if current_user %>
           Signed in as <%= current_user.email %>
@@ -29,7 +29,17 @@
           <%= link_to "Sign in", new_user_session_path %>
         <% end %>
       </nav>
-
+      <p>
+        Select Date: <%= datetime_select( "article", "written_on", start_year: 1995) %>
+      </p>
+      <p>
+        Today: <%= time_tag Date.today, pubdate: true %>
+      </p>
+      <ul class="menu">
+        <li><%= render 'devise/menu/registration_items' %></li>
+        <li><%= render 'devise/menu/login_items' %></li>
+        <li><%= link_to('Post', posts_path) %></li>
+      </ul>
       <% if notice %>
       <div class="alert alert-warning" role="alert"><%= notice %></div>
       <% end %>

@@ -34,4 +34,11 @@ RSpec.describe "Post management", :type => :request do
     expect(response).to render_template(:show)
     expect(response.body).to include("Post was successfully created.")
   end
+
+  it 'update Post' do
+    @post = FactoryGirl.create(:post)
+    put post_path(@post.id, post: FactoryGirl.attributes_for(:post, title: "New Title"))
+    @post.reload
+    @post.title.should eq("New Title")
+  end
 end

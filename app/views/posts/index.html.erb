@@ -34,3 +34,9 @@
   </div>
   <%= will_paginate @posts, :container => false %>
 </div>
+
+<%= javascript_tag "alert('Test javascript tag')" %>
+
+<script>
+  $(".container h1:contains('Post')").replaceWith('<%= j render 'posts/demo' %>');
+</script>

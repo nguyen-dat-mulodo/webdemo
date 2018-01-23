@@ -1,6 +1,15 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [ :show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :before_action
+  after_action :after_action
+  append_after_action :append_after_action
+  append_before_action :append_before_action
+  prepend_after_action :prepend_after_action
+  prepend_before_action :prepend_before_action
+  around_action :around_action
+  prepend_around_action :prepend_around_action
+  append_around_action :append_around_action
 
   def index
     @posts = Post.paginate(:page => params[:page], :per_page => 10).order('created_at desc')
@@ -62,4 +71,44 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :content, :quantity, :image)
     end
+
+    def after_action
+      logger.error("after_action #{Time.now}")
+    end
+
+    def append_after_action
+      logger.error("append_after_action #{Time.now}")
+    end
+
+    def append_around_action
+      logger.error("append_around_action #{Time.now}")
+      yield
+    end
+
+    def append_before_action
+      logger.error("append_before_action #{Time.now}")
+    end
+
+    def around_action
+      logger.error("around_action #{Time.now}")
+      yield
+    end
+
+    def before_action
+      logger.error("before_action #{Time.now}")
+    end
+
+    def prepend_after_action
+      logger.error("prepend_after_action #{Time.now}")
+    end
+
+    def prepend_around_action
+      logger.error("prepend_around_action #{Time.now}")
+      yield
+    end
+
+    def prepend_before_action
+      logger.error("prepend_before_action #{Time.now}")
+    end
+
 end

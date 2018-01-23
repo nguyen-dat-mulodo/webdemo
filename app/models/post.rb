@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  include DemoModelHelper
   validates :title, length: { minimum: 5, maximum: 50 }, uniqueness: true,  presence: true
   validates :content, length: { minimum: 10 }, presence: true
   validates :quantity, numericality: { only_integer: true, :greater_than => 0}, presence: true

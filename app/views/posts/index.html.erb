@@ -14,15 +14,9 @@
 
   <tbody>
     <% @posts.each do |post| %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= link_to(image_tag(post.image.url(:thumb), alt: 'Image'), post.image.url, target: '_blank') if post.image.present? %></td>
-      <td><%= post.quantity%></td>
-      <td><%= post.content %></td>
-      <td><%= link_to('Show', post) %></td>
-      <td><%= link_to('Edit', edit_post_path(post)) %></td>
-      <td><%= link_to('Delete', post, method: :delete, remote: true, data: {confirm: 'Are you sure?'}) %></td>
-    </tr>
+      <%= cache "post-#{post.id}" do %>
+        <%= render  partial: 'post',  locals: { post: post }%>
+      <% end %>
     <% end %>
   </tbody>
 
@@ -35,7 +29,7 @@
   <%= will_paginate @posts, :container => false %>
 </div>
 
-<%= javascript_tag "alert('Test javascript tag')" %>
+<%= javascript_tag "console.log('Test javascript tag')" %>
 
 <script>
   $(".container h1:contains('Post')").replaceWith('<%= j render 'posts/demo' %>');

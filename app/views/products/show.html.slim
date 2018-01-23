@@ -1,7 +1,7 @@
 #product
-    h2
-      = @product.title
-    p
-      = simple_format(@product.content) 
-    = link_to "Edit Product", [:edit, @category, @product]
-    = link_to "Delete Product", [@category, @product], method: :delete, data: {confirm: "Are you sure you want to delete this product?"}
+  h2
+    = @product.title
+  p
+    = simple_format(@product.content) 
+  = link_to "Edit Product", [:edit, @category, @product]
+  = link_to "Delete Product", [@category, @product], method: :delete, data: {confirm: "Are you sure you want to delete this product?"}

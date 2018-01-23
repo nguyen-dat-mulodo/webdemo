@@ -1,20 +1,19 @@
-
 = form_with(model: @category, local: true, multipart: true) do |form|
-    - if post.errors.any?
-      #error_explanation
-        h2
-          = pluralize(post.errors.count, "error") + 'prohibited this post from being saved:'
-        ul
-        - post.errors.full_messages.each do |message|
-          li
-            = message
-    .form-group
-      = form.label :name 
-      = form.text_field :name, id: :category_name, class: 'form-control'
-  
-    .form-group
-      = form.label :description
-      = form.text_area :description, id: :category_description, class: 'form-control' , rows: '8'
-  
-    .actions
-      = form.submit class: 'btn btn-primary'
+  - if post.errors.any?
+    #error_explanation
+      h2
+        = pluralize(post.errors.count, "error") + 'prohibited this post from being saved:'
+      ul
+      - post.errors.full_messages.each do |message|
+        li
+          = message
+  .form-group
+    = form.label :name 
+    = form.text_field :name, id: :category_name, class: 'form-control'
+
+  .form-group
+    = form.label :description
+    = form.text_area :description, id: :category_description, class: 'form-control' , rows: '8'
+
+  .actions
+    = form.submit class: 'btn btn-primary'

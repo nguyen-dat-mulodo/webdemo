@@ -1,4 +1,3 @@
-
 p#notice
   = notice
 
@@ -10,7 +9,7 @@ p
   = @category.description
 
 ul#products
-    = @category.products.each do |product|
+    - @category.products.each do |product|
       li>
         = link_to product.title, [@category, product]
     

@@ -1,0 +1,27 @@
+h1 Post
+= link_to('New Post', new_post_path)
+table class="table table-striped"
+
+  thead class="thead-dark"
+    tr
+      th scope="col" Title
+      th scope="col" Image
+      th scope="cold" Quantity
+      th scope="col" Content
+      th scope="col" colspan="3"
+
+  tbody
+    - @posts.each do |post|
+      tr
+        td = post.title
+        td = link_to(image_tag(post.image.url(:thumb), alt: 'Image'), post.image.url, target: '_blank') if post.image.present?
+        td = post.quantity
+        td = post.content
+        td = link_to('Show', post)
+        td = link_to('Edit', edit_post_path(post))
+        td = link_to('Delete', post, method: :delete, remote: true, data: {confirm: 'Are you sure?'})
+
+div class="digg_pagination"
+  div class="page_info"
+    = page_entries_info @posts
+  = will_paginate @posts, :container => false

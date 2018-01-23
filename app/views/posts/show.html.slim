@@ -1,0 +1,18 @@
+p id="notice" = notice
+
+p
+  strong Title:
+  = @post.title
+
+= link_to(image_tag(@post.image.url(:medium), alt: 'Image'), @post.image.url, target: '_blank') if @post.image.present?
+
+p
+  strong Quantity:
+  = @post.quantity
+
+p
+  strong Content:
+  = @post.content
+
+= link_to('Edit', edit_post_path(@post))
+= link_to('Back', posts_path)

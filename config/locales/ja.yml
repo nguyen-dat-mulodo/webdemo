@@ -37,22 +37,22 @@ ja:
   activerecord:
     attributes:
       post:
-        title: タイトル
-        content: コンテンツ
-        quantity: 量
-        image: 画像
+        title: "タイトル"
+        content: "コンテンツ"
+        quantity: "量"
+        image: "画像"
   pages:
     about:
-      title: 私のページにようこそ
+      title: "私のページにようこそ"
   posts:
     about:
-      title: 役職
-      new: 新しい投稿
-      editing_post: 投稿の編集
-      edit: 編集
-      delete: 削除
-      show: ショー
-      back: バック
+      title: "役職"
+      new: "新しい投稿"
+      editing_post: "投稿の編集"
+      edit: "編集"
+      delete: "削除"
+      show: "ショー"
+      back: "バック"
   will_paginate:
     next_label: "次へ &#8594;"
     page_entries_info:

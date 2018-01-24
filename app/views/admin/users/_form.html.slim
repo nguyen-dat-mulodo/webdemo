@@ -9,12 +9,12 @@
             = msg
     
   p
-    = f.label :email
+    = f.label t(:email)
     = f.text_field :email
   p
-    = f.label :password
+    = f.label t(:password)
     = f.password_field :password
   p
     = f.check_box :admin
-    = f.label :admin, "Is an admin?"
+    = f.label :admin, t("admin.is_admin")
   = f.submit

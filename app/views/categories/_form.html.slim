@@ -8,11 +8,11 @@
         li
           = message
   .form-group
-    = form.label :name 
+    = form.label t(:name) 
     = form.text_field :name, id: :category_name, class: 'form-control'
 
   .form-group
-    = form.label :description
+    = form.label t(:description)
     = form.text_area :description, id: :category_description, class: 'form-control' , rows: '8'
 
   .actions

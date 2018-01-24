@@ -1,0 +1,33 @@
+zh-CN:
+  name: "名称"
+  title: "标题"
+  content: "内容"
+  quantity: "数量"
+  description: "描述"
+  show: "显示"
+  new: "新"
+  edit: "编辑"
+  delete: "删除"
+  back: "背部"
+  email: "电子邮件"
+  password: "密码"
+  admin:
+    welcome_admin: "欢迎来到管理页面。 请享受您的逗留。"
+    is_admin: "是管理员?"
+  user:
+    users: "用户"
+    new_user: "新用户"
+    edit_user: "编辑用户"
+    delete_user: "删除用户"
+  category:
+    category : "类别"
+    categories: "类别"
+    new_category: "新类别"
+    edit_category: "编辑类别"
+    delete_category: "删除类别"
+  product:
+    product: "产品"
+    products: "制品"
+    new_product: "新产品"
+    edit_product: "编辑产品"
+    delete_product: "删除产品"

@@ -1,10 +1,11 @@
-h1 Categories
-= link_to('New Category', new_category_path)
+
+h1 = t "category.categories"
+= link_to(t('category.new_category'), new_category_path)
 table.table.table-striped
   thead.thead-dark
     tr
-      th scope="col" Name
-      th scope="col" Description
+      th scope="col" = t "name"
+      th scope="col" = t "description"
       th scope="col" colspan="3"
   tbody
     - @categories.each do |category| 
@@ -14,9 +15,9 @@ table.table.table-striped
         td
          = category.description
         td
-          = link_to('Show', category)
+          = link_to(t('show'), category)
         td
-          = link_to('Edit', edit_category_path(category))
+          = link_to(t('edit'), edit_category_path(category))
         td
-          = link_to('Delete', category, method: :delete, data: {confirm: 'Are you sure?'})
+          = link_to(t('delete'), category, method: :delete, data: {confirm: 'Are you sure?'})
 

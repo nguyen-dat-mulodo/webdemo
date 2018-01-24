@@ -1,8 +1,8 @@
 h1 Post
 = link_to('New Post', new_post_path)
-table class="table table-striped"
+table.table.table-striped
 
-  thead class="thead-dark"
+  thead.thead-dark
     tr
       th scope="col" Title
       th scope="col" Image
@@ -21,7 +21,7 @@ table class="table table-striped"
         td = link_to('Edit', edit_post_path(post))
         td = link_to('Delete', post, method: :delete, remote: true, data: {confirm: 'Are you sure?'})
 
-div class="digg_pagination"
-  div class="page_info"
+div.digg_pagination
+  div.page_info
     = page_entries_info @posts
   = will_paginate @posts, :container => false

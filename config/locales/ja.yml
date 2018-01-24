@@ -34,3 +34,40 @@ ja:
     edit_product: "商品を編集する"
     delete_product: "製品を削除する"
     are_you_sure: "この商品を削除してもよろしいですか?"
+  activerecord:
+    attributes:
+      post:
+        title: タイトル
+        content: コンテンツ
+        quantity: 量
+        image: 画像
+  pages:
+    about:
+      title: 私のページにようこそ
+  posts:
+    about:
+      title: 役職
+      new: 新しい投稿
+      editing_post: 投稿の編集
+      edit: 編集
+      delete: 削除
+      show: ショー
+      back: バック
+  will_paginate:
+    next_label: "次へ &#8594;"
+    page_entries_info:
+      multi_page: "%{from}番目から%{to}番目までの%{model}を表示しています（全%{count}件中）"
+      multi_page_html: "<b>%{from}</b>番目から<b>%{to}</b>番目までの%{model}を表示しています（全<b>%{count}</b>件中）"
+      single_page:
+        one: 1件の%{model}を表示しています
+        other: "%{count}件の%{model}をすべて表示しています"
+        zero: "%{model}が見つかりません"
+      single_page_html:
+        one: "<b>1</b>件の%{model}を表示しています"
+        other: "<b>%{count}</b>件の%{model}をすべて表示しています"
+        zero: "%{model}が見つかりません"
+    page_gap: "&hellip;"
+    previous_label: "&#8592; 前へ"
+  validates:
+    about:
+      not_save: この投稿が保存されないようにしました

@@ -37,21 +37,21 @@ zh-TW:
   activerecord:
     attributes:
       post:
-        title: "标题"
-        content: "内容"
-        quantity: "数量"
-        image: "图片"
+        title: "標題"
+        content: "內容"
+        quantity: "數量"
+        image: "圖片"
   pages:
     about:
-      title: "欢迎来到我的网站"
+      title: "歡迎來到我的網站"
   posts:
     about:
-      title: "岗位"
+      title: "崗位"
       new: "最新帖子"
-      editing_post: "编辑帖子"
-      edit: "编辑"
-      delete: "删除"
-      show: "删除"
+      editing_post: "編輯帖子"
+      edit: "編輯"
+      delete: "刪除"
+      show: "顯示"
       back: "背部"
   will_paginate:
     next_label: "下一頁"

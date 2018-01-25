@@ -53,6 +53,8 @@ zh-TW:
       delete: "刪除"
       show: "顯示"
       back: "背部"
+    delete:
+      are_you_sure: "您確定嗎？"
   will_paginate:
     next_label: "下一頁"
     page_entries_info:

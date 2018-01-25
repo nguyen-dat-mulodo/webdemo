@@ -84,6 +84,8 @@ en:
       delete: "Delete"
       show: "Show"
       back: "Back"
+    delete:
+      are_you_sure: "Are you sure?"
   will_paginate:
     next_label: Next &#8594;
     page_entries_info:

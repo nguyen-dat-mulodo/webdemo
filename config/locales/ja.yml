@@ -53,6 +53,8 @@ ja:
       delete: "削除"
       show: "ショー"
       back: "バック"
+    delete:
+      are_you_sure: "本当によろしいですか?"
   will_paginate:
     next_label: "次へ &#8594;"
     page_entries_info:

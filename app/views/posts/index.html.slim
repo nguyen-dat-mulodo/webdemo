@@ -19,7 +19,7 @@ table.table.table-striped
         td = post.content
         td = link_to(t('posts.about.show'), post)
         td = link_to(t('posts.about.edit'), edit_post_path(post))
-        td = link_to(t('posts.about.delete'), post, method: :delete, remote: true, data: {confirm: 'Are you sure?'})
+        td = link_to(t('posts.about.delete'), post, method: :delete, remote: true, data: {confirm: "#{ t('posts.delete.are_you_sure') }"})
 
 div.digg_pagination
   div.page_info

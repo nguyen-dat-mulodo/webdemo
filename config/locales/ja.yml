@@ -19,15 +19,18 @@ ja:
     new_user: "新しいユーザー"
     edit_user: "ユーザーを編集する"
     delete_user: "ユーザーを削除"
+    are_you_sure: "このユーザーを削除してもよろしいですか?"
   category:
     category: "カテゴリー"
     categories: "カテゴリー"
     new_category: "新たなカテゴリー"
     edit_category: "カテゴリを編集"
     delete_category: "カテゴリーを削除する"
+    are_you_sure: "このカテゴリを削除してもよろしいですか?"
   product:
     product: "製品"
     products: "製品"
     new_product: "新製品"
     edit_product: "商品を編集する"
     delete_product: "製品を削除する"
+    are_you_sure: "この商品を削除してもよろしいですか?"

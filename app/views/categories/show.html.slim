@@ -15,8 +15,8 @@ ul#products
     
 = link_to t('edit'), edit_category_path(@category)
 '  |
-= link_to t('category.delete_category'), category_path(@category), method: :delete, data: {confirm: "Are you sure you want to delete this category?"}
+= link_to t('category.delete_category'), category_path(@category), method: :delete, data: {confirm: t('category.are_you_sure')}
 '  |
 = link_to t('back'), categories_path 
 '  |
-= link_to t("product.new_product"), new_category_product_path(@category)
+= link_to t('product.new_product'), new_category_product_path(@category)

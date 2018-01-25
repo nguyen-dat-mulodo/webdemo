@@ -50,17 +50,20 @@ en:
     new_user: "New user"
     edit_user: "Edit user"
     delete_user: "Delete user"
+    are_you_sure: "Are you sure you want to delete this user?"
   category:
     category: "Category"
     categories: "Categories"
     new_category: "New category"
     edit_category: "Edit category"
     delete_category: "Delete category"
+    are_you_sure: "Are you sure you want to delete this category?"
   product:
     product: "Product"
     products: "Products"
     new_product: "New product"
     edit_product: "Edit product"
     delete_product: "delete product"
+    are_you_sure: "Are you sure you want to delete this product?"
 
 

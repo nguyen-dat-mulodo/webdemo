@@ -1,27 +1,27 @@
 = form_for(@post, :remote => true, :html => { :multipart => true }) do |form|
   div#error_explanation
     - if post.errors.any?
-      h2 = pluralize(post.errors.count, "error") 
-        | prohibited this post from being saved:
+      h2 #{ pluralize(post.errors.count, "error") }
+        | #{ t('validates.about.not_save') }:
 
       ul
       - post.errors.full_messages.each do |message|
         li = message
 
   div.form-group
-    = form.label :title
+    = form.label t('activerecord.attributes.post.title')
     = form.text_field :title, id: :post_title, class: 'form-control'
 
   div.form-group
-    = form.label :content
+    = form.label t('activerecord.attributes.post.content')
     = form.text_area :content, id: :post_content, class: 'form-control' , rows: '8'
 
   div.form-group
-    = form.label :quantity
+    = form.label t('activerecord.attributes.post.quantity')
     = form.number_field :quantity, id: :post_quantity, class: 'form-control'
 
   div.form-group
-    = form.label :image
+    = form.label t('activerecord.attributes.post.image')
     = form.file_field :image, id: :post_image, class: 'form-control'
     - if post.image.present?
       = image_tag post.image.url(:thumb)

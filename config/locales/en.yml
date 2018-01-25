@@ -65,5 +65,37 @@ en:
     edit_product: "Edit product"
     delete_product: "delete product"
     are_you_sure: "Are you sure you want to delete this product?"
-
-
+  activerecord:
+    attributes:
+      post:
+        title: "Title"
+        content: "Content"
+        quantity: "Quantity"
+        image: "Image"
+  pages:
+    about:
+      title: "Welcome to my page"
+  posts:
+    about:
+      title: "Post"
+      new: "New post"
+      editing_post: "Editing post"
+      edit: "Edit"
+      delete: "Delete"
+      show: "Show"
+      back: "Back"
+  will_paginate:
+    next_label: Next &#8594;
+    page_entries_info:
+      multi_page: Displaying %{model} %{from} - %{to} of %{count} in total
+      multi_page_html: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total
+      single_page:
+        one: Displaying 1 %{model}
+        other: Displaying all %{count} %{model}
+        zero: No %{model} found
+      single_page_html:
+        one: Displaying <b>1</b> %{model}
+        other: Displaying <b>all&nbsp;%{count}</b> %{model}
+        zero: No %{model} found
+    page_gap: "&hellip;"
+    previous_label: "&#8592; Previous"

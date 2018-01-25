@@ -1,7 +1,8 @@
 
-h1 Editing Category
+h1 = t('category.edit_category')
 
 = render 'form', post: @category 
 
-= link_to 'Show', @category + ' | '
-= link_to 'Back', categories_path
+= link_to t('show'), @category
+'  |
+= link_to t('back'), categories_path

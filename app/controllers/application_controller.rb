@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_locale
 
   private
     def authorize_admin!
@@ -9,5 +10,13 @@ class ApplicationController < ActionController::Base
         flash[:alert] = "You must be an admin to do that."
         redirect_to root_path
       end
+    end
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
+
+    def default_url_options
+      { locale: I18n.locale }
     end
 end

@@ -1,22 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_locale
+  include_all_helpers
 
   private
-    def authorize_admin!
-      user_signed_in?
-      
-      unless current_user.try(:admin?)
-        flash[:alert] = "You must be an admin to do that."
-        redirect_to root_path
-      end
-    end
-
-    def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
-    end
-
-    def default_url_options
-      { locale: I18n.locale }
+    def current_cart
+      Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+      cart = Cart.create
+      session[:cart_id] = cart.id
+      cart
     end
 end

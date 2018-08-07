@@ -1,7 +1,0 @@
-#product
-  h2
-    = @product.title
-  p
-    = simple_format(@product.content) 
-  = link_to t('product.edit_product'), [:edit, @category, @product]
-  = link_to t('product.delete_product'), [@category, @product], method: :delete, data: {confirm: t('product.are_you_sure')}

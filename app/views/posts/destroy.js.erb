@@ -1,0 +1,5 @@
+//app/view/product/destroy.js.erb
+//delete data
+$('.destroy-post').bind('ajax:success', function () {
+    $(this).closest('tr').fadeOut();
+});

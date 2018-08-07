@@ -1,24 +1,19 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|ja|zh-CN|zh-TW/ do
-    namespace :admin do
-      get 'users/index'
-    end
-    root to: 'posts#index'
-    devise_for :users
-    resources :posts
-    get '/welcome' => 'pages#welcome'
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    # get "users/sign_out",to: "sessions#destroy"
+  resources :line_items
+  resources :carts
+  resources :products
+  resources :posts
+  get 'home/index'
 
-    namespace :admin do
-      root :to => "base#index"
-      resources :users
-    end
-    
-    
-    resources :categories do
-      resources :products
-    end
+  get 'admin' => 'admin#index'
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
   end
-  
+
+  root "home#index"
+  resources :users
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

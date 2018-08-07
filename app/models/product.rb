@@ -1,3 +1,24 @@
 class Product < ApplicationRecord
-  belongs_to :category
+  # self.default_scope :order => 'title'
+
+  has_many :line_items
+  before_destroy :check_lineitem_referencing_product
+
+  #validates for products
+  validates :title, :description, :image_url, :presence => true
+  validates :price, :numericality => {greater_than_or_equal_to: 0.01}
+  validates :title, :uniqueness => true
+  validates :image_url, :format => {
+      :with => /\.(gif|jpg|png)/i,
+      :message => "must be GIF, JPG or PNG"
+  }
+  private
+  def line_item_referencing_product
+    if line_items.empty?
+      true
+    else
+      errors.add(:base, 'line items present')
+      false
+    end
+  end
 end

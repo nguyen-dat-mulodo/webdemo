@@ -1,10 +1,39 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  validates :name, :presence => true, :uniqueness => true
 
-  def to_s
-    "#{email} (#{admin? ? "Admin" : "User"})" 
+  validates :password, :confirmation => true
+  attr_accessor :password_confirmation
+  attr_reader   :password
+
+  validate :password_must_be_present
+
+  def User.encrypt_password(password, salt)
+    Digest::SHA2.hexdigest(password + "wibble" + salt)
   end
+
+  def password=(password)
+    @password = password
+
+    if password.present?
+      generate_salt
+      self.hashed_password = self.class.encrypt_password(password, salt)
+    end
+  end
+
+  def User.authenticate(name, password)
+    if user = find_by_name(name)
+      if user.hashed_password == encrypt_password(password,user.salt)
+        user
+      end
+    end
+  end
+
+  private
+    def password_must_be_present
+      errors.add(:password, "missing password") unless hashed_password.present?
+    end
+
+    def generate_salt
+      self.salt = self.object_id.to_s + rand.to_s
+    end
 end

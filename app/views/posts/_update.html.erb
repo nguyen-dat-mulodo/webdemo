@@ -1,0 +1,6 @@
+<tr>
+  <td><%= post.text_field :title %></td>
+  <td><%= post.text_area :content, row: '6' %></td>
+  <td><%= link_to 'Confirm', update_post_path(post), method: 'put', remote: true, class: 'confirm-post' %></td>
+  <td><%= link_to 'Cancel'  %></td>
+</tr>

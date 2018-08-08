@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate(params[:session][:name], params[:session][:password])
       log_in user
-      redirect_to root_path, notice: 'Login success'
+      redirect_to session[:return], notice: 'Login success'
     else
       redirect_to login_path, :alert => "Invalid user/password combination"
     end

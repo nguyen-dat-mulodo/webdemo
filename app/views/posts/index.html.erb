@@ -1,3 +1,5 @@
+<% @title="Post" %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
@@ -32,5 +34,11 @@
     <%= f.submit %>
   </div>
 <% end %>
-
+<script>
+    $('.update-post').click(function () {
+        var title = $(this).parent().find('td.title').html();
+        var content = $(this).parent().eq(2).find('td.content').html();
+        console.log(title, content);
+    });
+</script>
 <%#= link_to 'New Post', new_post_path %>

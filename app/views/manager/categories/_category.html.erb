@@ -1,0 +1,8 @@
+<tr>
+    <td><%= category.cat_id %></td>
+    <td><%= category.cat_name %></td>
+    <td><%= category.cat_content %></td>
+    <td><%= link_to 'Show', manager_category_path(category) %></td>
+    <td><%= link_to 'Edit', edit_manager_category_path(category) %></td>
+    <td><%= link_to 'Destroy', manager_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

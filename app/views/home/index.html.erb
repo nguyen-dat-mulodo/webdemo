@@ -1,6 +1,8 @@
-<% @title='My Homepage' %>
+<% content_for :title do %>
+  My Homepage
+<% end %>
 
-<h1>Your Pragmatic Catalog</h1>
+<h1>List product</h1>
 <% @products.each do |product| %>
   <div class="entry">
     <%= image_tag(product.image_url) %>
@@ -12,3 +14,4 @@
     <%= button_to 'Add to Cart', line_items_path(:product_id => product) %>
   </div>
 <% end %>
+

@@ -5,9 +5,13 @@ Rails.application.routes.draw do
   resources :products
   resources :posts
   resources :users
-  get 'home/index'
+  resources :categories, only: [:index, :show]
 
-  get 'admin' => 'admin#index'
+  namespace :manager do
+    resources :categories
+  end
+
+  get 'manager' => 'manager#index'
 
   controller :sessions do
     get 'login' => :index

@@ -1,5 +1,10 @@
 <%# add navigation links to this file %>
-<%= link_to 'Post', posts_path %>
-<%= link_to 'Login', login_path %>
-<%= link_to 'Logout', logout_path, method: 'delete' %>
-<%= link_to 'Register', new_user_path %>
+
+<li><%= link_to 'Post', posts_path %></li>
+<% if session[:user].nil? %>
+  <li><%= link_to 'Login', login_path %></li>
+<% else %>
+  <li><%= link_to "Hello, #{session[:user]['name']}", 'javascript:;' %></li>
+  <li><%= link_to 'Logout', logout_path, method: 'delete' %></li>
+<% end %>
+<li><%= link_to 'Register', new_user_path %></li>

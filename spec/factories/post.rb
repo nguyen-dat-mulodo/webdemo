@@ -1,13 +1,13 @@
-require 'ffaker'
+require 'faker'
 FactoryGirl.define do
   factory :post do
-    title { FFaker::Book.title }
-    content { FFaker::Book.description }
-    quantity { FFaker::Random.rand(1..100) }
+    title { Faker::Book.title }
+    content { Faker::Book.description }
+    quantity { Faker::Random.rand(1..100) }
   end
 
   factory :user do
-    email { FFaker::Internet.email }
+    email { Faker::Internet.email }
     password { '123456' }
   end
 end

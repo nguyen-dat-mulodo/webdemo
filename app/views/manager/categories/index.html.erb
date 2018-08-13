@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  Categories
+<% end %>
+
 <div class="page-header">
   <%= link_to 'javascripts:;', class: 'add-category btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
@@ -14,19 +18,19 @@
   <div id="new-category" class="col-sm-12 col-offset-2">
     <%= form_for(@category, url: manager_categories_path, html: { class: "form-horizontal", role: "form" }, remote: true) do |f| %>
       <div class="form-group">
-        <%= f.label :cat_id, class: "col-sm-2 control-label" %>
+        <%= f.label :category_id, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
           <%= f.number_field :cat_id, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :cat_name, class: "col-sm-2 control-label" %>
+        <%= f.label :category_name, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
           <%= f.text_field :cat_name, class: "form-control" %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :cat_content, class: "col-sm-2 control-label" %>
+        <%= f.label :category_content, class: "col-sm-2 control-label" %>
         <div class="col-sm-10">
           <%= f.text_area :cat_content, class: "form-control" %>
         </div>
@@ -41,7 +45,6 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-        <th>Cat</th>
         <th>Cat name</th>
         <th>Cat content</th>
         <th></th>
@@ -55,8 +58,30 @@
     </tbody>
   </table>
 </div>
+
 <script>
   $('.add-category').click(function(){
     $('#new-category').toggle(1000);
-  })
+  });
+  $('.update-cat').click(function () {
+    $(this).closest('tr').find('td:nth-child(2)').each(function () {
+        // console.log('wwwwwwwww');
+        var val = $(this).html();
+        console.log(val);
+        // var input = ("<input type='text' name");
+        // input.val(val);
+        // $(this).html(input);
+    });
+  });
+<!--  $("form").submit(function(){-->
+<!--      let description = $(this).find('#todo_description').val();-->
+<!--      let priority = $(this).find('#todo_priority').val();-->
+
+<!--      $.ajax({-->
+<!--          method: 'PUT',-->
+<!--          url: <%#= manager_category_path(2) %>,-->
+<!--          data: { description: description, priority: priority },-->
+<!--          dataType: 'script'-->
+<!--      });-->
+<!--  });-->
 </script>

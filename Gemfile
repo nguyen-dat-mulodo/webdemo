@@ -37,9 +37,20 @@ gem 'bcrypt', '~> 3.1.7'
 # Use bootstrap for rails
 gem 'bootstrap-sass'
 
+#Use gem for rspec
+gem 'capybara'
+#Call fake data
+gem "factory_girl_rails"
+#Call it for test template
+gem 'rails-controller-testing'
+#Use gem for upload image
+gem 'paperclip'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Call rspec for test
+  gem "rspec-rails"
 end
 
 group :development do

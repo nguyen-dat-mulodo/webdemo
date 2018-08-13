@@ -2,7 +2,8 @@ class Product < ApplicationRecord
   # self.default_scope :order => 'title'
 
   has_many :line_items
-  before_destroy :check_lineitem_referencing_product
+  belongs_to :category, foreign_key: :category_id
+  before_destroy :line_item_referencing_product
 
   #validates for products
   validates :title, :description, :image_url, :presence => true
@@ -12,13 +13,15 @@ class Product < ApplicationRecord
       :with => /\.(gif|jpg|png)/i,
       :message => "must be GIF, JPG or PNG"
   }
+
   private
-  def line_item_referencing_product
-    if line_items.empty?
-      true
-    else
-      errors.add(:base, 'line items present')
-      false
+    def line_item_referencing_product
+      if line_items.empty?
+        true
+      else
+        errors.add(:base, 'line items present')
+        false
+      end
     end
-  end
+
 end

@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @categories = Category.get_category
   end
 
   # POST /products

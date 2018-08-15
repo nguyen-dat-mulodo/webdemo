@@ -1,0 +1,17 @@
+- content_for :title do
+  |  My Homepage 
+.page-header
+  h1
+    | List product
+.container-fluid
+  .col-sm-12.coll-offset-2.list-item
+    - @products.each do |product|
+      .item
+        = image_tag(product.image_url)
+        h3
+          = product.title
+        = sanitize(product.description)
+        .price_line
+          span.price
+            = number_to_currency(product.price)
+        = button_to 'Add to Cart', line_items_path(:product_id => product)

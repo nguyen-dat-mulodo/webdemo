@@ -1,0 +1,28 @@
+- @title="Post"
+p#notice
+  = notice
+h1
+  | Posts
+table
+  thead
+    tr
+      th
+        | Title
+      th
+        | Content
+      th[colspan="3"]
+  tbody#posts
+    = render @posts
+br
+= form_for(@post, remote: true) do |f|
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_area :content, row: '6'
+  .actions
+    = f.submit
+script
+  |  $('.update-post').click(function () { var title = $(this).parent().find('td.title').html(); var content = $(this).parent().eq(2).find('td.content').html(); console.log(title, content); }); 
+- #= link_to 'New Post', new_post_path

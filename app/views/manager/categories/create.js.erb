@@ -1,0 +1,11 @@
+//add a record created to table
+$("<%= escape_javascript(render @category) %>").appendTo("#categories");
+
+$('.form-horizontal').bind('ajax:error', function (xhr, status, error) {
+//    errors = xhr.responseJSON.error
+//        $('#errors ul').append '<li>' + errors[message] + '</li>'
+      console.log(xhr, status, error);
+}).bind('ajax:success', function () {
+//    $(this).closest('tr').fadeOut();
+    console.log("Category was successfully created.");
+});

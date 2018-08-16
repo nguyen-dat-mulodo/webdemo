@@ -9,9 +9,18 @@
     |  Back 
   h1
     | Listing categories
+
+= render 'partials/messages'
+
 .table-responsive
   #new-category.col-sm-12.col-offset-2
     = form_for(@category, url: manager_categories_path, html: { class: "form-horizontal", role: "form" }, remote: true) do |f|
+      - if @category.errors.any?
+        #error_explanation
+          ul
+            - @category.errors.full_messages.each do |message|
+              li
+                = message
       .form-group
         = f.label :category_id, class: "col-sm-2 control-label"
         .col-sm-10

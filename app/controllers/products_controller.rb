@@ -4,7 +4,9 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    # @products = Product.all
+    #use for query object
+    @products = ProductQuery.new(sort_query_params).all
   end
 
   # GET /products/1
@@ -28,10 +30,17 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    #Code for forms object
+    @product = ProductForm.new(product_params)
+    # @product = Product.new(product_params)
     @categories = Category.get_category
     #TODO: design pattern - form object
-    @product.save
+    if @product.insert(product_params)
+      redirect_to products_url, notice: 'Product was successfully created.'
+    else
+      render json: @form.errors, status: :unpocessably_entity
+    end
+
     # begin
     #   @product.create
     # rescue => e
@@ -86,5 +95,14 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price, :category_id)
+    end
+
+    def product_form_params
+      params.require(:product_form).permit :title, :description, :image_url, :price, :category_id
+    end
+
+    #use for query object
+    def sort_query_params
+      { sort: :by_title, type: :desc }
     end
 end

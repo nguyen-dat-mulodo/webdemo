@@ -1,10 +1,6 @@
-- @title = 'My Homepage'
-= form_for :session, url: login_path do |f|
-  .field
-    = f.label :name, 'Username'
-    = f.text_field :name, :size => 40
-  .field
-    = f.label :password, 'Password'
-    = f.password_field :password, :size => 40
-  .actions
-    = f.submit 'Login'
+- content_for :title do
+  |  Login
+
+.col-sm-8.col-sm-offset-2
+  = render 'partials/messages'
+  = render 'login'

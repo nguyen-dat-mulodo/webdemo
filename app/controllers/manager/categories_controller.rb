@@ -1,5 +1,5 @@
 class Manager::CategoriesController < ApplicationController
-  # before_filter :authorize
+  before_filter :authorize
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
@@ -30,14 +30,15 @@ class Manager::CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        # format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.js {}
+        flash[:notice] = @category.cat_name
+        flash[:notice] += ' was successfully created.'
         format.json { render :show, status: :created, location: @category }
       else
-        # format.html { render :new }
-        format.js { render :new }
-        # format.json { render json: @category.errors, status: :unprocessable_entity }
-        format.json { render :json => { :error => @category.errors } }
+        format.js
+        @category.errors.each do |key, value|
+        end
       end
     end
   end

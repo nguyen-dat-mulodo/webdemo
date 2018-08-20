@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    # @products = Product.all
     #use for query object
     @products = ProductQuery.new(sort_query_params).all
   end
@@ -30,9 +29,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    #Code for forms object
     @product = ProductForm.new(product_params)
-    # @product = Product.new(product_params)
     @categories = Category.get_category
     #TODO: design pattern - form object
     if @product.insert(product_params)
@@ -40,26 +37,6 @@ class ProductsController < ApplicationController
     else
       render json: @form.errors, status: :unpocessably_entity
     end
-
-    # begin
-    #   @product.create
-    # rescue => e
-    #   # logger.error "Attempt to access invalid cart #{params[:id]}"
-    #   # redirect_to root_path, :notice => "Exists category ID"
-    #   logger.error "products_controller::create => exception #{e.class.name} : #{e.message}"
-    #   redirect_to root_path, flash[:error] = "<br/>Detailed error"
-    # end
-
-    # respond_to do |format|
-    #   if @product.save
-    #     format.html { redirect_to @product, notice: 'Product was successfully created.' }
-    #     format.json { render :show, status: :created, location: @product }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @product.errors, status: :unprocessable_entity }
-    #     #  format.json { render :json => { :error => @product.errors } }
-    #   end
-    # end
   end
 
   # PATCH/PUT /products/1

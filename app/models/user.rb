@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :person, dependent: :destroy
+
   validates :name, :presence => true, :uniqueness => true
 
   validates :password, :confirmation => true

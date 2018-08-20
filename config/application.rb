@@ -13,5 +13,7 @@ module Training
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += Dir["#{config.root}/app/forms/**/"]
     config.autoload_paths += Dir["#{config.root}/app/queries/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/services/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/policy/**/"]
   end
 end

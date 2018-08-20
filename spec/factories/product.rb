@@ -1,4 +1,4 @@
-# spec/factories/product.rb
+# spec/factories/product_form.rb
 require 'faker'
 
 FactoryGirl.define do

@@ -3,6 +3,14 @@
 .page-header
   h1
     | List product
+
+p
+  b I18n.locale:
+  = I18n.locale
+
+= link_to export_budgets_path
+  = button_tag "Download"
+
 .container-fluid
   .col-sm-12.coll-offset-2.list-item
     - @products.each do |product|

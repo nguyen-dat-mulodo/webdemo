@@ -11,9 +11,13 @@ Rails.application.routes.draw do
   namespace :manager do
     resources :categories
   end
-
+  # scope "(:locale)", locale: /en|vi/ do
+  #   resources :products
+  # end
   get 'manager' => 'manager#index'
-
+  namespace :export do
+    resources :budgets
+  end
   controller :sessions do
     get 'login' => :index
     post 'login' => :create

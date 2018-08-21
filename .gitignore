@@ -115,13 +115,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-config/database.yml
-config/secrets.yml
 npm-debug.log
 
 # Ignore application configuration
 /config/application.yml
-/db/schema.rb
 
 #Ignore public/mnt
 /public/mnt

@@ -50,9 +50,13 @@ gem 'formulaic'
 gem 'paperclip'
 #Use gem slim for template
 gem 'slim-rails'
-#Use for decorator object
+#Use for decorator objectGE
 gem "draper"
 gem 'kaminari'
+#Use for translate
+gem 'rails-i18n'
+
+gem "axlsx"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

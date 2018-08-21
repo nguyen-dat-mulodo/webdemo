@@ -63,25 +63,4 @@
   $('.add-category').click(function(){
     $('#new-category').toggle(1000);
   });
-  $('.update-cat').click(function () {
-    $(this).closest('tr').find('td:nth-child(2)').each(function () {
-        // console.log('wwwwwwwww');
-        var val = $(this).html();
-        console.log(val);
-        // var input = ("<input type='text' name");
-        // input.val(val);
-        // $(this).html(input);
-    });
-  });
-<!--  $("form").submit(function(){-->
-<!--      let description = $(this).find('#todo_description').val();-->
-<!--      let priority = $(this).find('#todo_priority').val();-->
-
-<!--      $.ajax({-->
-<!--          method: 'PUT',-->
-<!--          url: <%#= manager_category_path(2) %>,-->
-<!--          data: { description: description, priority: priority },-->
-<!--          dataType: 'script'-->
-<!--      });-->
-<!--  });-->
 </script>

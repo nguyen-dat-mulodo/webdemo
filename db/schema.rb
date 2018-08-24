@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180809024254) do
-=======
 ActiveRecord::Schema.define(version: 20180821072200) do
->>>>>>> Research services object, i18n
 
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -36,8 +32,6 @@ ActiveRecord::Schema.define(version: 20180821072200) do
     t.integer  "quantity",   default: 1
   end
 
-<<<<<<< HEAD
-=======
   create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -49,7 +43,6 @@ ActiveRecord::Schema.define(version: 20180821072200) do
     t.integer  "user_id"
   end
 
->>>>>>> Research services object, i18n
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "content"
@@ -64,12 +57,8 @@ ActiveRecord::Schema.define(version: 20180821072200) do
     t.decimal  "price",                     precision: 8, scale: 2
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-<<<<<<< HEAD
-    t.integer  "cat_id"
-=======
     t.integer  "category_id"
     t.integer  "status"
->>>>>>> Research services object, i18n
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

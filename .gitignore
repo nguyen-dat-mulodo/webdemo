@@ -27,6 +27,7 @@
 ### Ruby ###
 public/assets
 public/mnt
+public/uploads
 *.gem
 *.rbc
 /.config

@@ -14,3 +14,17 @@ a:hover {
 #new-category {
   display: none;
 }
+
+.translate {
+  padding: 15px;
+  text-align: right;
+  a {
+    color: #999999;
+    padding: 5px;
+  }
+}
+.list-item {
+  .item {
+    padding: 10px;
+  }
+}

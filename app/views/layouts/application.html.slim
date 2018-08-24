@@ -13,7 +13,5 @@ html
   body
     header
       = render 'partials/navigation'
-    = link_to "English", locale: "en"
-    = link_to "Vietnamese", locale: "vi"
-    .main-content
+    .main-content.container-fluid
       = yield

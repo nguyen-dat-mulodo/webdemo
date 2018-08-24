@@ -1,5 +1,8 @@
-p#notice
-  = notice
+- content_for :title do
+  |  List Product
+
+= render 'partials/messages'
+
 h1
   | Products
 table.table.table-striped.table-bordered.table-hover
@@ -22,7 +25,8 @@ table.table.table-striped.table-bordered.table-hover
         td
           = product.description
         td
-          = image_tag(product.image_url)
+          / = image_tag(product.image_url)
+          = link_to(image_tag(product.image_url.small_thumb.url, alt: 'Image'), product.image_url.url, target: '_blank') if product.image_url?
         td
           = product.price
         td

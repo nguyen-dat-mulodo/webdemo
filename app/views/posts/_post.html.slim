@@ -1,11 +1,14 @@
-tr
-  td.title
-    = post.title
-  td.content
-    = post.content
-  td
-    = link_to 'Show', post
-  td
-    = link_to 'Edit', 'javascript:;', class: "update-post"
-  td
-    = link_to 'Delete', post, method: 'delete', data: {confirm:'Are you sure?'}, remote: true, class: 'destroy-post'
+| <tr class=post_
+= post.id
+| >
+td.title
+  = post.title
+td.content
+  = post.content
+td
+  = link_to 'Show', post
+td
+  = link_to 'Edit', edit_post_path(post), class: "update-post", remote: true
+td
+  = link_to 'Delete', post, method: 'delete', data: {confirm:'Are you sure?'}, remote: true, class: 'destroy-post'
+| </tr>

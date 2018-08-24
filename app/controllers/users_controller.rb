@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_filter :authorize
+  before_filter :authorize, except: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  # #####################################
   def create
     @user = User.new(user_params)
 
@@ -37,15 +36,6 @@ class UsersController < ApplicationController
       end
     end
   end
-  # #####################################
-  # def create
-  #   result = NewRegistration.build.call({user: resource, organization: @org})
-  #   if result
-  #     redirect_to root_path(result.user)
-  #   else
-  #     redirect_to last_path(result.user), notice: 'Error saving record'
-  #   end
-  # end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -80,7 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      # params.require(:user).permit(:name, :hashed_password, :salt)
-      params.require(:user).permit(:name, :password, :password_confirmation, :firstname)
+      params.require(:user).permit(:name, :password, :password_confirmation)
     end
 end

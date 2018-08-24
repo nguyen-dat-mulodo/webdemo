@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_locale
+  before_action :set_locale, :authorize
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -32,11 +32,12 @@ class ProductsController < ApplicationController
   def create
     @product = ProductForm.new(product_params)
     @categories = Category.get_category
-    #TODO: design pattern - form object
     if @product.insert(product_params)
-      redirect_to products_url, notice: 'Product was successfully created.'
+      redirect_to products_url
+      flash[:notice]='Product was successfully created.'
     else
-      render json: @form.errors, status: :unpocessably_entity
+      render :new
+      render json: @product.errors, status: :unpocessably_entity
     end
   end
 
@@ -45,7 +46,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to products_url, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -73,10 +74,6 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price, :category_id)
-    end
-
-    def product_form_params
-      params.require(:product_form).permit :title, :description, :image_url, :price, :category_id
     end
 
     #use for query object

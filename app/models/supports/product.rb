@@ -6,7 +6,7 @@ class Supports::Product
   end
 
   def category
-    @category ||= Product.categories
+    @category ||= @product.category
   end
 
 end

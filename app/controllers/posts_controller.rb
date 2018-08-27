@@ -30,6 +30,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @post.interactions.build(post_id: @post.id, user_id: session[:user]['id'], like: 0, share: 0, comment: 0)
 
     respond_to do |format|
       if @post.save
@@ -44,7 +45,7 @@ class PostsController < ApplicationController
   end
 
   # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
+  # PATCH/PUT /posts/1.jsonpo
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -71,6 +72,15 @@ class PostsController < ApplicationController
       format.json { head :no_content }
       format.js   { render layout: false}
     end
+  end
+
+  def add_favorite
+    post = Post.find(params[:post_id])
+    post.interactions.each do |itr|
+      like = itr.like + 1
+      post.interactions.update(like: like)
+    end
+
   end
 
   private

@@ -1,17 +1,5 @@
-class ExportXls
+class ExportService
   TITLE_COLUMN = ["Title", "Description", "Price"]
-
-  def perform
-    initialize_attributes
-    return unless create_file
-    Team.each do |team|
-      add_data_to_files team
-      team.members.each do |member|
-        add_data_to_files member
-      end
-    end
-    save_file
-  end
 
   def initialize_attributes
     budget_dates = []
@@ -50,4 +38,17 @@ class ExportXls
       file.serialize "#{file.workbook.worksheets.first.name}.xls"
     end
   end
+
+  def download
+    initialize_attributes
+    return unless create_file
+    Team.each do |team|
+      add_data_to_files team
+      team.members.each do |member|
+        add_data_to_files member
+      end
+    end
+    save_file
+  end
+
 end

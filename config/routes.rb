@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # scope "(:locale)", locale: /en|vi/ do
+  scope "(:locale)", locale: /en|vi/ do
     resources :people
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :line_items
@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     namespace :manager do
       resources :categories
     end
-    get 'manager' => 'manager#index'
+    get 'display' => 'home#post_display'
+    post 'add_fav' => 'posts#add_favorite'
     controller :sessions do
       get 'login' => :index
       post 'login' => :create
@@ -20,8 +21,8 @@ Rails.application.routes.draw do
     end
 
     root "home#index"
-  # end
-  namespace :export do
-    resources :budgets
   end
+
+   get 'budgets' => 'budgets#index'
+
 end

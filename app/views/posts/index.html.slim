@@ -2,7 +2,8 @@
   |  List Posts
 
 = render 'partials/messages'
-
+= link_to budgets_path
+  = button_tag "Download"
 h1
   | Posts
 table.table.table-striped.table-bordered.table-hover
@@ -12,6 +13,8 @@ table.table.table-striped.table-bordered.table-hover
         | Title
       th
         | Content
+      th
+        | Like
       th[colspan="3"]
   tbody#posts
     = render @posts
@@ -39,12 +42,3 @@ div
     |  New Category
 
 #form-post-update.col-sm-8.col-sm-offset-2
-
-script
-  | $('.update-post').click(function () {
-  | $('#form-post-create').toggle(1000); $('.add-category').toggle(1000);
-  | $('#form-post-update').bind('ajax:success', function() {
-  | $('#posts').children().find('td.title').html("test success");
-  | $('#posts').children().find('td.content').html("success");
-  | });
-  | });

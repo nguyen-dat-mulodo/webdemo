@@ -1,13 +1,14 @@
 class User < ApplicationRecord
   has_one :person, dependent: :destroy
+  has_many :interactions, :dependent => :destroy
+  has_many :posts, through: :interactions
 
   validates :name, :presence => true, :uniqueness => true
-
   validates :password, :confirmation => true
+  validate :password_must_be_present
+
   attr_accessor :password_confirmation
   attr_reader   :password
-
-  validate :password_must_be_present
 
   def User.encrypt_password(password, salt)
     Digest::SHA2.hexdigest(password + "wibble" + salt)

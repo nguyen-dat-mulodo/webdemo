@@ -1,26 +1,21 @@
 - content_for :title do
   |  My Homepage
 
-/ p
-/   b I18n.locale:
-/   = I18n.locale
-
 / = link_to export_budgets_path
 /   = button_tag "Download"
 
 
 .col-sm-12.coll-offset-2.list-item
-  .page-header
+  .page-headerindex
     h1
       | List product
   - @products.each do |product|
     .item.col-sm-4
       / = image_tag(product.image_url, alt: 'Image') if product.image_url?
       = link_to(image_tag(product.image_url.thumb.url, alt: 'Image'), product.image_url.url, target: '_blank') if product.image_url?
-      h3
+      h3.title
         = product.title
-      = sanitize(product.description)
       .price_line
         span.price
           = number_to_currency(product.price)
-      = button_to 'Add to Cart', line_items_path(:product_id => product)
+      = button_to 'Add to cart', line_items_path(:product_id => product), class: 'btn btn-default', remote: true

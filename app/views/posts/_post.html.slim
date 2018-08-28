@@ -2,12 +2,17 @@
   | <tr class=post_
   = post.id
   | >
+  td
+    = post.id
   td.title
     = post.title
   td.content
     = post.content
   td.cnt-like
     = itr.like
+  td
+    = link_to budgets_path(:post_id => post.id)
+      = button_tag "Download"
   td
     = link_to 'Show', post
   td

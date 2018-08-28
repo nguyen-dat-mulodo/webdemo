@@ -30,9 +30,11 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.js
+        format.html { redirect_to @line_item.cart, notice: 'Your cart was successfully created.' }
         format.json { render :show, status: :created, location: @line_item }
       else
+        format.js
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
@@ -43,7 +45,7 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     respond_to do |format|
-      if @line_item.update(line_item_params)
+      if @line_item.update(line)
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
         format.json { render :show, status: :ok, location: @line_item }
       else
@@ -58,6 +60,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
+      format.js   { render layout: false}
       format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -66,7 +69,11 @@ class LineItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_item
-      @line_item = LineItem.find(params[:id])
+      # begin
+        @line_item = LineItem.find(params[:id])
+      # rescue ActiveRecord::RecordNotFound
+      #   flash[:error] = "error"
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,19 +1,32 @@
-- @title = 'My Cart'
-p#notice
-  = notice
-ul
-  - @cart.line_items.each do |item|
-    li
-      = item.quantity
-      |  × 
-      = item.product.title
-    li
-      = number_to_currency(item.total_price)
-  p
-    | Total
-  p
-    = number_to_currency(@cart.total_price)
-= button_to 'Empty cart', @cart, method: 'delete', confirm: 'Are you sure?'
-= link_to 'Edit', edit_cart_path(@cart)
-|  | 
-= link_to 'Back', carts_path
+- content_for :title do
+  |   Your Cart
+
+h1
+  | Cart information
+= render 'partials/messages'
+table.table.table-striped.table-bordered.table-hover
+  thead
+    tr
+      th
+        | No.
+      th
+        | Title
+      th
+        | Quantity
+      th
+        | Price
+      th
+        | Total
+      th
+  tbody#posts
+    = render @cart.line_items
+    tr
+      td[colspan="4"]
+        | Total
+      td
+        = number_to_currency(@cart.total_price)
+      td
+        = button_to 'Empty cart', @cart, method: 'delete', confirm: 'Are you sure?'
+
+= button_to 'Buy continue', @cart, method: 'get'
+= button_to 'Checkout', @cart, method: 'get', confirm: 'Are you sure?'

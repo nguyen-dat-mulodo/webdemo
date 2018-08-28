@@ -1,25 +1,10 @@
 - content_for :title do
   |  My Homepage
 
-/ = link_to export_budgets_path
-/   = button_tag "Download"
-
-
 .col-sm-12.coll-offset-2.list-item
   .page-headerindex
     h1
       | New Post Today
-  / - @products.each do |product|
-  /   .item.col-sm-4
-  /     / = image_tag(product.image_url, alt: 'Image') if product.image_url?
-  /     = link_to(image_tag(product.image_url.thumb.url, alt: 'Image'), product.image_url.url, target: '_blank') if product.image_url?
-  /     h3.title
-  /       = product.title
-  /     .price_line
-  /       span.price
-  /         = number_to_currency(product.price)
-  /     = button_to 'Add to cart', line_items_path(:product_id => product), class: 'btn btn-default', remote: true
-
   - @posts.each do |post|
     .item.col-sm-4
       h3.title

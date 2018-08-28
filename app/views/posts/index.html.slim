@@ -2,28 +2,30 @@
   |  List Posts
 
 = render 'partials/messages'
-= link_to budgets_path
-  = button_tag "Download"
+ul.notice
 h1
   | Posts
 table.table.table-striped.table-bordered.table-hover
   thead
     tr
       th
+        | Id post
+      th
         | Title
       th
         | Content
       th
         | Like
+      th
+        | Download
       th[colspan="3"]
   tbody#posts
     = render @posts
 br
 #form-post-create.col-sm-8.col-sm-offset-2
   = form_for(@post,  html: { class: "form-horizontal", role: "form" }, remote: true) do |f|
-    - if @post.errors.any?
-      #error_explanation
-        ul#error
+    #error_explanation
+      ul#error
     .form-group
       = f.label :title, class: "col-sm-2 control-label"
       .col-sm-10

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :people
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :line_items
-    resources :carts
+    resources :carts, except: [:index, :edit]
     resources :products
     resources :posts
     resources :users
@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
     root "home#index"
   end
-
-   get 'budgets' => 'budgets#index'
-
+  get 'budgets' => 'budgets#download'
+  get '*path', to: 'home#index'
 end

@@ -28,6 +28,7 @@
 public/assets
 public/mnt
 public/uploads
+public/file_downloads
 *.gem
 *.rbc
 /.config

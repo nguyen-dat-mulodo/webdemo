@@ -34,12 +34,12 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.js   {}
-        format.json { render :show, status: :created, location: @post }
+        format.js
+        flash[:notice] = "Post, which Id is #{@post.id} was successfully created."
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js
+        @post.errors.each do |key, value|
+        end
       end
     end
   end
@@ -47,14 +47,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.jsonpo
   def update
-    respond_to do |format|
+    respond_to do |format|po
       if @post.update(post_params)
-        # format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @post }
-        # format.js   {}
         format.js { @post }
-        flash[:notice] = @post.title
-        flash[:notice] += ' was successfully updated.'
+        flash[:notice] = "Post, which Id is #{@post.id} was successfully updated."
       else
         format.js
         @post.errors.each do |key, value|

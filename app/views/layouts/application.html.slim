@@ -10,8 +10,16 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = csrf_meta_tags
+    = action_cable_meta_tag
   body
     header
       = render 'partials/navigation'
     .main-content.container-fluid
+      / #cart
+      /   - unless @cart.nil?
+      /     = render @cart
+
+      / .translate
+      /   = link_to "English", locale: "en"
+      /   = link_to "Vietnamese", locale: "vi"
       = yield

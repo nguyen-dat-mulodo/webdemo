@@ -15,6 +15,9 @@ span.icon_sort:hover {
 .close-category {
   display: none;
 }
+#cart {
+  margin-top: 20px;
+}
 #error_explanation {
   color: red;
   li {
@@ -58,5 +61,37 @@ span.icon_sort:hover {
         box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
       }
     }
+    form {
+      position: relative;
+      float: right;
+    }
+    .detail_item {
+      position: relative;
+      float: left;
+    }
+  }
+}
+#room_chat {
+  position: absolute;
+  bottom: 5%;
+  right: 20%;
+  .messages {
+    overflow-y: scroll;
+    background-color: #EFEFEF;
+    height: 320px;
+    width: 250px;
+    .message {
+      position: relative;
+      .message_username, .message_timestamp {
+        display: none;
+      }
+      .message_timestamp {
+
+      }
+    }
+  }
+  .message_input {
+    position: relative;
+    bottom: 0;
   }
 }

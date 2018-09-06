@@ -1,4 +1,4 @@
-require 'test_helper'
+conrequire 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do

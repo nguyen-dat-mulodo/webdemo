@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   self.primary_key = 'cat_id'
   has_many :products, :dependent => :destroy
-
+  has_one :user
   validates :cat_id, :cat_name, :cat_content, :presence => true
   validates :cat_name, :cat_id,  :uniqueness => true
 

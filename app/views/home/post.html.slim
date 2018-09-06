@@ -11,6 +11,6 @@
         = post.title
       = post.content
       br
-      - post.interactions.each do |itr|
-        = itr.like
+      = post.interaction.like
       = button_to 'Like', add_fav_path(:post_id => post), class: 'btn btn-default', remote: true
+      = button_to 'Comment', post_path(post), class: 'btn btn-default', method: 'get'

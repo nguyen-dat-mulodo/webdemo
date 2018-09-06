@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @products = Product.all
   end
   def post_display
-    @posts = Post.includes(:users).all
+    @posts = Post.includes(:user).all
     render "home/post"
   end
 end

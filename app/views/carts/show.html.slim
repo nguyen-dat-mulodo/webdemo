@@ -18,7 +18,7 @@ table.table.table-striped.table-bordered.table-hover
       th
         | Total
       th
-  tbody#posts
+  tbody
     = render @cart.line_items
     tr
       td[colspan="4"]
@@ -28,5 +28,5 @@ table.table.table-striped.table-bordered.table-hover
       td
         = button_to 'Empty cart', @cart, method: 'delete', confirm: 'Are you sure?'
 
-= button_to 'Buy continue', @cart, method: 'get'
-= button_to 'Checkout', @cart, method: 'get', confirm: 'Are you sure?'
+= button_to 'Buy continue', products_path, method: 'get'
+= button_to 'Checkout', checkout_path, method: 'get', confirm: 'Are you sure?'

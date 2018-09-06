@@ -60,6 +60,12 @@ gem 'rails-i18n'
 
 gem "axlsx"
 gem 'axlsx_rails'
+#Use for authentication
+gem 'devise'
+#Use for admin authentication
+gem "rails_admin", "~> 1.2"
+#Use for ENV
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

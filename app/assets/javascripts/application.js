@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require cable
+//= require rooms
 //= //require_tree .

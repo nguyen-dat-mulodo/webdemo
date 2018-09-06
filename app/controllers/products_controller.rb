@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_locale, :authorize
+  before_action :authorize
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

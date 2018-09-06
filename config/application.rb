@@ -16,9 +16,9 @@ module Trainingap
     config.autoload_paths += Dir["#{config.root}/app/services/**/*.rb"]
     config.autoload_paths += Dir["#{config.root}/app/policy/**/"]
 
-    config.time_zone = "Asia/Bangkok"
-    config.i18n.default_locale = :vi
-    I18n.available_locales = [:en, :vi]
-    config.i18n.load_path += Dir["#{config.root}/config/locales/*.yml"]
+    # config.time_zone = "Asia/Bangkok"
+    # config.i18n.default_locale = :vi
+    # I18n.available_locales = [:en, :vi]
+    # config.i18n.load_path += Dir["#{config.root}/config/locales/*.yml"]
   end
 end

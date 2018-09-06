@@ -1,4 +1,4 @@
- require "rails_helper"
+index require "rails_helper"
 
   RSpec.describe "posts/index" do
     it "has a request.fullpath that is defined" do

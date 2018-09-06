@@ -1,0 +1,8 @@
+h1
+  | ActionCable Chat
+#room_chat
+  .messages
+    = render  @messages
+  | <input type='input' class='message_input' class='' placeholder='Enter this message' />
+
+= link_to("Logout", destroy_user_session_path, :method => :delete)

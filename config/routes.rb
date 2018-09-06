@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  scope "(:locale)", locale: /en|vi/ do
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users, controllers: {
+      sessions: 'authentication/sessions'
+  }
+
+  get 'rooms/show'
+
+  # scope "(:locale)", locale: /en|vi/ do
     resources :people
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :line_items
@@ -14,6 +22,10 @@ Rails.application.routes.draw do
     end
     get 'display' => 'home#post_display'
     post 'add_fav' => 'posts#add_favorite'
+    #checkout cart
+    get 'checkout' => 'checkouts#checkout'
+    post 'confirm' => 'checkouts#confirm'
+    #signin & sign up
     controller :sessions do
       get 'login' => :index
       post 'login' => :create
@@ -21,7 +33,11 @@ Rails.application.routes.draw do
     end
 
     root "home#index"
-  end
+  # end
+
   get 'budgets' => 'budgets#download'
-  get '*path', to: 'home#index'
+  mount ActionCable.server => '/cable'
+
+  get '/rooms/:id' => 'rooms#show', as: 'room'
+  # get '*path', to: 'home#index'
 end

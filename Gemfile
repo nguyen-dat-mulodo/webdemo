@@ -66,6 +66,8 @@ gem 'devise'
 gem "rails_admin", "~> 1.2"
 #Use for ENV
 gem 'figaro'
+#Use for jobs send mail
+gem 'delayed_job_active_record'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

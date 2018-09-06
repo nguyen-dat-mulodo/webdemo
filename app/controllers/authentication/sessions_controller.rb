@@ -13,7 +13,8 @@ class Authentication::SessionsController < Devise::SessionsController
     session[:user] = current_user
     super
     # Sends email to user when user is created.
-    DemoMailer.demo_email(current_user).deliver
+    # DemoMailer.demo_email(current_user).deliver
+    SendEmailJob.set(wait: 10.seconds).perform_later(current_user)
   end
 
   # DELETE /resource/sign_out

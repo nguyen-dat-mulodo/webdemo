@@ -10,10 +10,21 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= //require jquery
+//= require jquery-3.3.1.min.js
+//= require jquery-ui.js
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require cable
-//= require rooms
-//= //require_tree .
+//= //require cable
+//= //require rooms
+//= require aos.js
+//= require bootstrap.min.js
+//= require jquery.countdown.min.js
+//= require jquery.magnific-popup.min.js
+//= require jquery.stellar.min.js
+
+//= require jquery-migrate-3.0.1.min.js
+//= require owl.carousel.min.js
+//= require popper.min.js
+//= require slick.min.js
+//= require main.js

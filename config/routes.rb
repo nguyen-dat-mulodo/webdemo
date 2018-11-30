@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       sessions: 'authentication/sessions'
   }
 
-  get 'rooms/show'
+  # get 'rooms/show'
 
   # scope "(:locale)", locale: /en|vi/ do
     resources :people
@@ -35,9 +35,9 @@ Rails.application.routes.draw do
     root "home#index"
   # end
 
-  get 'budgets' => 'budgets#download'
-  mount ActionCable.server => '/cable'
+  # get 'budgets' => 'budgets#download'
+  # mount ActionCable.server => '/cable'
 
-  get '/rooms/:id' => 'rooms#show', as: 'room'
+  # get '/rooms/:id' => 'rooms#show', as: 'room'
   # get '*path', to: 'home#index'
 end

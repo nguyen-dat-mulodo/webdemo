@@ -1,14 +1,16 @@
- AOS.init({
- 	duration: 800,
- 	easing: 'slide',
- 	once: false
- });
+document.addEventListener('DOMContentLoaded', function() {
+  	AOS.init({
+	 	duration: 800,
+	 	easing: 'slide',
+	 	once: false
+ 	});
+});
 
 jQuery(document).ready(function($) {
 
 	"use strict";
 
-	
+ 	
 
 	var siteMenuClone = function() {
 

@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets
 //= //require cable
 //= //require rooms
-//= require aos.js
+
 //= require bootstrap.min.js
 //= require jquery.countdown.min.js
 //= require jquery.magnific-popup.min.js
@@ -27,4 +27,5 @@
 //= require owl.carousel.min.js
 //= require popper.min.js
 //= require slick.min.js
+//= require aos.js
 //= require main.js

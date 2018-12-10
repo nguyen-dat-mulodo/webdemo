@@ -20,14 +20,19 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  products:
-    index:
-      title: 'Title'
-      description: 'Description'
-      image_url: 'Image URL'
-      show: 'Show'
-      edit: 'Edit'
-      destroy: 'Destroy'
-      new_product: 'New Product'
-      Price: 'Price'
+  index:
+    package:
+      title: Mang lại nhiều trải nghiệm khác biệt cho người dùng!
+      content:
+        account_upgrade: Upgrade account
+        plan_upgrade: Plans start at $2.22/month
+        coupon: Coupon package
+        plan_coupon: Plans start at $4.99/month
+        account_premium: Account premium
+        plan_premium: Plans start at $9.99/month
+        detail: View Details
+    menu:
+      fashion_male: Fashion for men
+      male_intro: Change for seasons. Fashion only for you.
+      fashionfemale: Fashion for ladies
+

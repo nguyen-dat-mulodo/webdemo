@@ -1,11 +1,16 @@
 vi:
-  products:
-    index:
-      title: 'Tiêu đề'
-      description: 'Nội dung'
-      image_url: 'Địa chỉ lưu ảnh'
-      show: 'Xem chi tiết'
-      edit: 'Chinh sửa'
-      destroy: 'Xóa'
-      new_product: 'Thêm sản phẩm'
-      Price: 'Giá'
+  index:
+    package:
+      title: Mang lại nhiều trải nghiệm khác biệt cho người dùng!
+      content:
+        account_upgrade: Nâng cấp tài khoản
+        plan_upgrade: Nâng cấp chỉ với 50.000 VND/tháng
+        coupon: Gói khuyến mãi
+        plan_coupon: Tiết kiệm hơn chỉ với 110.000 VND/tháng
+        account_premium: Tài khoản cao cấp
+        plan_premium: Nâng cấp chỉ với 220.000 VND/tháng
+        detail: Xem chi tiết
+    menu:
+      fashion_male: Thời trang nam
+      male_intro: Kiểu dáng trang nhã dành cho nam giới.
+      fashionfemale: Thời trang nữ

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # get 'rooms/show'
 
-  # scope "(:locale)", locale: /en|vi/ do
+  scope "(:locale)", locale: /en|vi/ do
     resources :people
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     resources :line_items
@@ -33,10 +33,10 @@ Rails.application.routes.draw do
     end
 
     root "home#index"
-  # end
+  end
 
   # get 'budgets' => 'budgets#download'
-  # mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cablerout'
 
   # get '/rooms/:id' => 'rooms#show', as: 'room'
   # get '*path', to: 'home#index'

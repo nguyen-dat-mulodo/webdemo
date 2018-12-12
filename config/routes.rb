@@ -5,39 +5,32 @@ Rails.application.routes.draw do
       sessions: 'authentication/sessions'
   }
 
-  # get 'rooms/show'
-
   scope "(:locale)", locale: /en|vi/ do
-    resources :people
-    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    resources :line_items
-    resources :carts, except: [:index, :edit]
-    resources :products
-    resources :posts
-    resources :users
-    resources :categories, only: [:index, :show]
-
-    namespace :manager do
-      resources :categories
+    resources :users do
+      resources :people
     end
-    get 'display' => 'home#post_display'
-    post 'add_fav' => 'posts#add_favorite'
+    resources :categories, only: [:index, :show]
+    resources :products do
+      get "product_male", to: 'products#product_for_male', as: :products_male
+      get "product_female", to: 'products#product_for_female', as: :products_female
+    end
+    resources :carts, except: [:index, :edit]
+    resources :line_items
+    resources :posts
     #checkout cart
     get 'checkout' => 'checkouts#checkout'
     post 'confirm' => 'checkouts#confirm'
-    #signin & sign up
-    controller :sessions do
-      get 'login' => :index
-      post 'login' => :create
-      delete 'logout' => :destroy
-    end
+
+    get 'display' => 'home#post_display'
+    post 'add_fav' => 'posts#add_favorite'
 
     root "home#index"
+    get '*path', to: 'home#index'
   end
 
   # get 'budgets' => 'budgets#download'
   # mount ActionCable.server => '/cablerout'
 
   # get '/rooms/:id' => 'rooms#show', as: 'room'
-  # get '*path', to: 'home#index'
+
 end

@@ -51,22 +51,42 @@
                 span.icon-menu.h3
             ul.site-menu.js-clone-nav.d-none.d-lg-block
               li.active
-                a href="index.html"  Home
-              li
-                a href="domain.html"  Domain
+                = link_to "Home", root_path
               li.has-children
-                a href="hosting.html"  Hosting
+                = link_to "Male", products_male_path
                 ul.dropdown.arrow-top
                   li
-                    a href="#"  Shared Hosting
+                    a href="#"  Shirt
                   li
-                    a href="#"  Dedicated Hosting
+                    a href="#"  T-Shirt
                   li
-                    a href="#"  Premium Hosting
+                    a href="#"  Jean
                   li
-                    a href="#"  Cloud Hosting
+                    a href="#" Pants
                   li.has-children
-                    a href="#"  Sub Menu
+                    a href="#"  Comple
+                    ul.dropdown
+                      li
+                        a href="#"  Tuxedo
+                      li
+                        a href="#"  Office
+                      li
+                        a href="#"  Original
+              li.has-children
+                = link_to "Female", products_female_path
+                ul.dropdown.arrow-top
+                  li
+                    a href="#"  Shirt
+                  li
+                    a href="#"  T-Shirt
+                  li
+                    a href="#"  Jeans
+                  li
+                    a href="#"  Pants
+                  li
+                    a href="#"  Skirt
+                  li.has-children
+                    a href="#"  Vest
                     ul.dropdown
                       li
                         a href="#"  Menu One
@@ -75,9 +95,13 @@
                       li
                         a href="#"  Menu Three
               li
-                a href="blog.html"  Blog
+                = link_to "Event", event_path
               li
-                a href="contact.html"  Contact
+                = link_to "Suggest", recipeg_path
+              li
+                = link_to "Blog", blog_path
+              li
+                = link_to "Contact", contact_path
         .col-8.col-md-8.col-lg-4.text-right
           a.btn.btn-primary.btn-outline-primary.rounded-0.text-white.py-2.px-4 href="register.html"  Register
           a.btn.btn-primary.btn-primary.rounded-0.py-2.px-4 href="register.html"  Login

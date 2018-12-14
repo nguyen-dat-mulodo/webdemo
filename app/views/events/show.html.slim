@@ -1,0 +1,33 @@
+p#notice = notice
+
+p
+  strong Event name:
+  = @event.event_name
+p
+  strong Banner event:
+  = @event.banner_event
+p
+  strong Number of participants:
+  = @event.number_of_participants
+p
+  strong User:
+  = @event.user
+p
+  strong Start at:
+  = @event.start_at
+p
+  strong End at:
+  = @event.end_at
+p
+  strong Location:
+  = @event.location
+p
+  strong Price ticket:
+  = @event.price_ticket
+p
+  strong Description:
+  = @event.description
+
+=> link_to 'Edit', edit_event_path(@event)
+'|
+=< link_to 'Back', events_path

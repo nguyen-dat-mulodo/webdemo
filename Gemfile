@@ -49,7 +49,7 @@ gem 'rails-controller-testing'
 gem 'rspec-activemodel-mocks'
 gem 'formulaic'
 #Use gem for upload image
-# gem 'paperclip'
+gem 'paperclip'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 #Use gem slim for template

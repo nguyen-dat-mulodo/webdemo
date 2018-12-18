@@ -52,8 +52,10 @@
             ul.site-menu.js-clone-nav.d-none.d-lg-block
               li.active
                 = link_to "Home", root_path
+              li
+                = link_to "Products", products_path
               li.has-children
-                = link_to "Male", products_male_path
+                = link_to "Male", gender_products_path(:status => 'male')
                 ul.dropdown.arrow-top
                   li
                     a href="#"  Shirt
@@ -73,7 +75,7 @@
                       li
                         a href="#"  Original
               li.has-children
-                = link_to "Female", products_female_path
+                = link_to "Female", gender_products_path(:status => 'female')
                 ul.dropdown.arrow-top
                   li
                     a href="#"  Shirt
@@ -95,9 +97,9 @@
                       li
                         a href="#"  Menu Three
               li
-                = link_to "Event", event_path
+                = link_to "Event", events_path
               li
-                = link_to "Suggest", recipe_path
+                = link_to "Suggest", recipes_path
               li
                 = link_to "Blog", blog_path
               li

@@ -70,6 +70,9 @@ gem "rails_admin", "~> 1.2"
 gem 'figaro'
 #Use for jobs send mail
 gem 'delayed_job_active_record'
+#paginate
+gem 'ransack'     #tạo form tìm kiếm
+gem 'bootstrap-kaminari-views' #giao diện đẹp cho phân trang
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -87,7 +90,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   #Use gem faker for create data
   # gem 'rack-mini-profiler'
-  gem 'faker'
+  gem 'faker', require: false
   #Use bootstrap
   gem 'bootstrap-generators'
   gem 'rails_layout'

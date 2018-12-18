@@ -1,0 +1,9 @@
+.page-header
+  .row.justify-content-center.text-center.mb-5
+    .col-md-6 data-aos="fade"
+      h2 Products
+br
+.product-container
+  = render @products
+.pagination-sm
+  = paginate @products, theme: 'twitter-bootstrap-3'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906083004) do
+ActiveRecord::Schema.define(version: 20181214075345) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -24,28 +24,29 @@ ActiveRecord::Schema.define(version: 20180906083004) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "branches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.bigint   "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "publish"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
   create_table "carts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", primary_key: "cat_id", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "cat_name"
     t.text     "cat_content", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_categories_on_user_id", using: :btree
-  end
-
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "body",       limit: 65535
-    t.integer  "user_id"
-    t.integer  "post_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -61,6 +62,24 @@ ActiveRecord::Schema.define(version: 20180906083004) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+  end
+
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "event_name"
+    t.string   "banner_event_file_name"
+    t.string   "banner_event_content_type"
+    t.bigint   "banner_event_file_size"
+    t.datetime "banner_event_updated_at"
+    t.integer  "number_of_participants"
+    t.integer  "user_id"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.string   "location"
+    t.text     "price_ticket",              limit: 65535
+    t.text     "description",               limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "interactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -113,13 +132,31 @@ ActiveRecord::Schema.define(version: 20180906083004) do
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
-    t.string   "image_url"
-    t.decimal  "price",                     precision: 8, scale: 2
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.integer  "category_id"
+    t.text     "description",        limit: 65535
+    t.datetime "image_updated_at"
+    t.bigint   "image_file_size"
+    t.string   "image_content_type"
+    t.string   "image_file_name"
+    t.decimal  "price",                            precision: 8, scale: 2
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
     t.integer  "status"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
+  end
+
+  create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.bigint   "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "description",        limit: 65535
+    t.string   "type"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -145,10 +182,10 @@ ActiveRecord::Schema.define(version: 20180906083004) do
   end
 
   add_foreign_key "categories", "users"
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "interactions", "posts"
   add_foreign_key "interactions", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "recipes", "users"
 end

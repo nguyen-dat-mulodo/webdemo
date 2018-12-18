@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @recipe.name
+p
+  strong User:
+  = @recipe.user
+p
+  strong Image:
+  = @recipe.image
+p
+  strong Description:
+  = @recipe.description
+p
+  strong Type:
+  = @recipe.type
+
+=> link_to 'Edit', edit_recipe_path(@recipe)
+'|
+=< link_to 'Back', recipes_path

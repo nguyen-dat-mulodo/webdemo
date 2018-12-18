@@ -42,7 +42,7 @@ class ProductQuery
     end
 
     def by_category
-      order("categories.cat_id #{type}")
+      order("categories.id #{type}")
     end
   end
 end

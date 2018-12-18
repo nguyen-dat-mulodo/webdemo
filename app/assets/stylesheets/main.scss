@@ -1,0 +1,28 @@
+.wrapper-product {
+  width: 80%;
+  margin-left: 20%;
+  .product-container {
+    display: flex;
+    flex-flow: row wrap;
+    .product-item {
+      max-width: 250px;
+      margin-left: 2%;
+    }
+  }
+}
+//.side-right {
+//  position: absolute;
+//  top: 200px;
+//  right: 2%;
+//  width: 17%;
+//  height: auto;
+//  background-color: #32383e;
+//}
+.side-left {
+  position: absolute;
+  top: 200px;
+  left: 2%;
+  width: 17%;
+  height: auto;
+  background-color: #32383e;
+}

@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :authorize
+  # before_action :authenticate_user!
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
     #use for query object
-    @products = ProductQuery.new(sort_query_params).all
+    @products = ProductQuery.new(sort_query_params).all.page(params[:page]).per(10).order('created_at desc')
   end
 
   # GET /products/1
@@ -62,6 +62,18 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def product_for_gender
+    status = params[:status]
+    @products = ProductQuery.new(sort_query_params).all
+    if status == 'male'
+      render 'index'
+    elsif status == 'female'
+      render 'index'
+    else
+      render 'html_not_found'
     end
   end
 

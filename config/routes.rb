@@ -1,19 +1,25 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :branches
+  resources :recipes
   resources :events
   devise_for :admins
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
       sessions: 'authentication/sessions'
   }
 
   scope "(:locale)", locale: /en|vi/ do
+    concern :paginatable do
+      get '(page/:page)', action: :index, on: :collection, as: ''
+    end
     resources :users do
       resources :people
     end
     resources :categories, only: [:index, :show]
-    resources :products do
-      get "product_male", to: 'products#product_for_male', as: :products_male
-      get "product_female", to: 'products#product_for_female', as: :products_female
+    resources :products, concerns: :paginatable do
+      collection do
+        get "/:status", to: 'products#product_for_gender', as: :gender
+      end
     end
     resources :carts, except: [:index, :edit]
     resources :line_items
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
 
     get 'display' => 'home#post_display'
     post 'add_fav' => 'posts#add_favorite'
+    get 'blog', to: 'blog#index', as: :blog
+    get 'contact', to: 'contact#index', as: :contact
 
     root "home#index"
     get '*path', to: 'home#index'

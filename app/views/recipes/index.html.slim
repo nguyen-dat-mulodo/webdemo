@@ -1,0 +1,29 @@
+h1 Listing recipes
+
+table
+  thead
+    tr
+      th Name
+      th User
+      th Image
+      th Description
+      th Type
+      th
+      th
+      th
+
+  tbody
+    - @recipes.each do |recipe|
+      tr
+        td = recipe.name
+        td = recipe.user
+        td = recipe.image
+        td = recipe.description
+        td = recipe.type
+        td = link_to 'Show', recipe
+        td = link_to 'Edit', edit_recipe_path(recipe)
+        td = link_to 'Destroy', recipe, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Recipe', new_recipe_path

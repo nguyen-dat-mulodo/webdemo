@@ -16,9 +16,9 @@ module Trainingap
     config.autoload_paths += Dir["#{config.root}/app/services/**/*.rb"]
     config.autoload_paths += Dir["#{config.root}/app/policy/**/"]
 
-    config.i18n.default_locale = :vi
-    config.i18n.fallbacks = true
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*','**/*.{rb,yml}').to_s]
+    # config.i18n.default_locale = :vi
+    # config.i18n.fallbacks = true
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*','**/*.{rb,yml}').to_s]
 
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/app/assets/fonts"

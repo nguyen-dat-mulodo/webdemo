@@ -1,0 +1,25 @@
+h1 Listing branches
+
+table
+  thead
+    tr
+      th Name
+      th Image
+      th Publish
+      th
+      th
+      th
+
+  tbody
+    - @branches.each do |branch|
+      tr
+        td = branch.name
+        td = branch.image
+        td = branch.publish
+        td = link_to 'Show', branch
+        td = link_to 'Edit', edit_branch_path(branch)
+        td = link_to 'Destroy', branch, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Branch', new_branch_path

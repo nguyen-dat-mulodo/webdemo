@@ -1,19 +1,34 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+I18n.reload!
 
 Product.delete_all
+Category.delete_all
+User.delete_all
 
-Product.create(:title => 'Programming Ruby 1.9',
-               :description =>
-                   %{<p>
-                    Ruby is the fastest growing and most exciting dynamic language
-                    out there. If you need to get working programs delivered fast,
-                    you should add Ruby to your toolbox.
-                    </p>},
-               :image_url => '/images/ruby.jpg',
-               :price => 49.50)
+#Create fake data for user
+10.times do
+  User.create(email: Faker::Internet.email, password: 'password')
+end
+
+#Create fake data for category
+users=User.all
+users.each do |u|
+  10.times do
+    u.create_category(cat_name: Faker::Lorem.sentence, cat_content: Faker::Lorem.sentence)
+  end
+end
+photos = Dir.glob('app/assets/images/img_1.jpg')
+file = Rack::Test::UploadedFile.new(photos.sample, 'image/jpeg')
+#Create fake data for product
+categories = Category.all
+categories.each do |c|
+  10.times do
+    c.products.create(:title => Faker::Lorem.sentence,
+                 :description => Faker::Lorem.sentence,
+                 :image => file,
+                 :price => Faker::Number.rand)
+  end
+end
+
+Admin.delete_all
+Admin.create(email: 'admin@testmail.com', password: '12345678')

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :show]
     resources :products, concerns: :paginatable do
       collection do
-        get "/:status", to: 'products#product_for_gender', as: :gender
+        get "/gender/:status", to: 'products#product_for_gender', as: :gender, constraints: { id: /[A-Z]/ }
       end
     end
     resources :carts, except: [:index, :edit]

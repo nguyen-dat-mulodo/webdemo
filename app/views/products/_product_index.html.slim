@@ -4,6 +4,6 @@
       h2 Products
 br
 .product-container
-  = render @products
+  = render @products, :index => 100
 .pagination-sm
   = paginate @products, theme: 'twitter-bootstrap-3'

@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     #use for query object
-    @products = ProductQuery.new(sort_query_params).all.page(params[:page]).per(10).order('created_at desc')
+    @products = ProductQuery.new(sort_query_params).all.page(params[:page]).per(12).order('created_at desc')
   end
 
   # GET /products/1

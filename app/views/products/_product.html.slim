@@ -1,60 +1,15 @@
 .product-item
-  div.item-image.col-md-6.col-lg-4.mb-5.mb-lg-4 data-aos="fade" data-aos-delay="100"
+  div.item-image data-aos="fade" data-aos-delay="#{index+100}"
     = link_to(image_tag(product.image.url(:medium), alt: 'Image'), product.image.url, target: '_blank') if product.image.present?
   p.item-title
     = product.title
-  p.description
+  p.item-description
     = product.description
-  span.price
+  span.old-price
     = number_to_currency(product.price)
-
-  / .col-md-6.col-lg-4.mb-5.mb-lg-4 data-aos="fade" data-aos-delay="200"
-  /   .unit-3.h-100.bg-white
-  /     .d-flex.align-items-center.mb-3.unit-3-heading
-  /       .unit-3-icon-wrap.mr-4
-  /         svg.unit-3-svg height="68px" width="59px" xmlns="http://www.w3.org/2000/svg"
-  /           path d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z" fill="none" fill-rule="evenodd" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2px"
-  /         span.unit-3-icon.icon.fl-bigmug-line-cube29
-  /       h2.h5 Top Data Centers
-  /     .unit-3-body
-  /       p Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.
-  / .col-md-6.col-lg-4.mb-5.mb-lg-4 data-aos="fade" data-aos-delay="300"
-  /   .unit-3.h-100.bg-white
-  /     .d-flex.align-items-center.mb-3.unit-3-heading
-  /       .unit-3-icon-wrap.mr-4
-  /         svg.unit-3-svg height="68px" width="59px" xmlns="http://www.w3.org/2000/svg"
-  /           path d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z" fill="none" fill-rule="evenodd" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2px"
-  /         span.unit-3-icon.icon.fl-bigmug-line-airplane86
-  /       h2.h5 Outstanding Speed
-  /     .unit-3-body
-  /       p Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.
-  / .col-md-6.col-lg-4.mb-5.mb-lg-4 data-aos="fade" data-aos-delay="400"
-  /   .unit-3.h-100.bg-white
-  /     .d-flex.align-items-center.mb-3.unit-3-heading
-  /       .unit-3-icon-wrap.mr-4
-  /         svg.unit-3-svg height="68px" width="59px" xmlns="http://www.w3.org/2000/svg"
-  /           path d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z" fill="none" fill-rule="evenodd" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2px"
-  /         span.unit-3-icon.icon.fl-bigmug-line-hot67
-  /       h2.h5 Amazing Uptime
-  /     .unit-3-body
-  /       p Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.
-  / .col-md-6.col-lg-4.mb-5.mb-lg-4 data-aos="fade" data-aos-delay="500"
-  /   .unit-3.h-100.bg-white
-  /     .d-flex.align-items-center.mb-3.unit-3-heading
-  /       .unit-3-icon-wrap.mr-4
-  /         svg.unit-3-svg height="68px" width="59px" xmlns="http://www.w3.org/2000/svg"
-  /           path d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z" fill="none" fill-rule="evenodd" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2px"
-  /         span.unit-3-icon.icon.fl-bigmug-line-headphones32
-  /       h2.h5 Best Support
-  /     .unit-3-body
-  /       p Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.
-  / .col-md-6.col-lg-4.mb-5.mb-lg-4 data-aos="fade" data-aos-delay="600"
-  /   .unit-3.h-100.bg-white
-  /     .d-flex.align-items-center.mb-3.unit-3-heading
-  /       .unit-3-icon-wrap.mr-4
-  /         svg.unit-3-svg height="68px" width="59px" xmlns="http://www.w3.org/2000/svg"
-  /           path d="M29.000,66.000 L1.012,49.750 L1.012,17.250 L29.000,1.000 L56.988,17.250 L56.988,49.750 L29.000,66.000 Z" fill="none" fill-rule="evenodd" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="2px"
-  /         span.unit-3-icon.icon.fl-bigmug-line-user143
-  /       h2.h5 Client Reviews
-  /     .unit-3-body
-  /       p Lorem ipsum dolor sit amet consectetur is a nice adipisicing elita ssumenda a similique perferendis dolorem eos.
+  span.item-price
+    = number_to_currency(product.price)
+  span.item-type
+    | tesst type
+  .item-link
+    = link_to '', product_path(id: product)

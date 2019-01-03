@@ -67,13 +67,13 @@ class ProductsController < ApplicationController
 
   def product_for_gender
     status = params[:status]
-    @products = ProductQuery.new(sort_query_params).all
+    @products = ProductQuery.new(sort_query_params).all.page(params[:page]).per(12)
     if status == 'male'
       render 'index'
     elsif status == 'female'
       render 'index'
     else
-      render 'html_not_found'
+      render 'error_page/html_not_found'
     end
   end
 
@@ -90,6 +90,6 @@ class ProductsController < ApplicationController
 
     #use for query object
     def sort_query_params
-      { sort: :by_title, type: :desc }
+      { sort: :by_title, type: :desc, gender: :male }
     end
 end

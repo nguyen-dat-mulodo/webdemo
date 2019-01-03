@@ -1,14 +1,11 @@
 class ProductQuery
-  # POPULAR_TRESHOLD = 5
-  SORT_OPTIONS = %w(by_date by_title by_category).freeze
-  # def initialize(products = Product.all)
-  def initialize(params={}, products = Product.includes(:category))
+  SORT_OPTIONS = [:by_date, :by_title, :by_category].freeze
+  def initialize(params={}, products = Product.all)
     @products = products.extending(Scopes)
     @params = params
   end
 
   def all
-    # @products.where(query)
     @products.public_send(sort_by, type)
   end
 
@@ -22,15 +19,6 @@ class ProductQuery
     @params[:type] == "asc" ? :asc : :desc
   end
 
-  def query
-    # <<-SQL
-    #     articles.comments_count >= #{POPULAR_TRESHOLD}
-    #     AND articles.content IS NOT NULL
-    #     AND articles.status = #{Article::STATUSES[:published]}
-    #     ORDER BY articles.comments_count DESC
-    # SQL
-  end
-
   # Extended by scopes
   module Scopes
     def by_title(type)
@@ -41,7 +29,7 @@ class ProductQuery
       order(created_at: type)
     end
 
-    def by_category
+    def by_category(type)
       order("categories.id #{type}")
     end
   end

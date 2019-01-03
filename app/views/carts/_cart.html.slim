@@ -1,3 +1,3 @@
-= button_to cart_path(cart.id), method: "get", class: "btn btn-primary"
-  span.glyphicon.glyphicon-shopping-cart
+= button_to cart_path(id: cart.id), method: "get", class: "btn btn-primary"
+  span.icon-shopping-cart
     = cart.total_items

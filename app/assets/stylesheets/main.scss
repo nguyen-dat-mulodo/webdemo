@@ -67,15 +67,70 @@
       }
     }
   }
-  .product-image {
+  .product {
     position: relative;
-    width: 40%;
+    width: 100%;
+    height: 800px;
+    margin-bottom: 25px;
+    .product-image {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .product-detail {
+      position: relative;
+      margin-right: 50px;
+      float: right;
+      width: 50%;
+      height: 600px;
+      padding: 15px;
+
+      .item-title {
+        font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .item-description {
+        font-family: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 18px;
+        min-height: 200px;
+        max-height: 300px;
+      }
+
+      .item-price {
+        font-family: "Source Code Pro", Monaco, monospace;
+        .old-price {
+          font-size: 16px;
+          margin-left: 15px;
+          text-decoration: line-through;
+          margin-right: 5px;
+          font-weight: 300;
+          color: #a2a2a2;
+        }
+
+        .current-price {
+          font-size: 20px;
+          margin-right: 5px;
+          color: #0b0b0b;
+        }
+      }
+
+      .item-action-back {
+        margin: 30px 20px;
+      }
+      span {
+        margin-right: 5px;
+      }
+    }
   }
-  .product-detail {
-    position: relative;
-    width: 57%;
-    margin-left: 3%;
-  }
+
 }
 //.side-right {
 //  position: absolute;

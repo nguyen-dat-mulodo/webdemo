@@ -4,17 +4,15 @@ Rails.application.routes.draw do
   resources :recipes
   resources :events
   devise_for :admins
-  devise_for :users, controllers: {
-      sessions: 'authentication/sessions'
-  }
+  devise_for :users
 
   scope "(:locale)", locale: /en|vi/ do
     concern :paginatable do
       get '(page/:page)', action: :index, on: :collection, as: ''
     end
-    resources :users do
-      resources :people
-    end
+    # resources :users do
+    #   resources :people
+    # end
     resources :categories, only: [:index, :show]
     resources :products, concerns: :paginatable do
       collection do
@@ -34,7 +32,7 @@ Rails.application.routes.draw do
     get 'contact', to: 'contact#index', as: :contact
 
     root "home#index"
-    get '*path', to: 'home#index'
+    # get '*path', to: 'home#index'
   end
 
   # get 'budgets' => 'budgets#download'

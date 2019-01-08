@@ -12,14 +12,14 @@ class Authentication::SessionsController < Devise::SessionsController
   def create
     session[:user] = current_user
     super
-    # Sends email to user when user is created.
-    # DemoMailer.demo_email(current_user).deliver
-    SendEmailJob.set(wait: 10.seconds).perform_later(current_user)
   end
 
   # DELETE /resource/sign_out
   def destroy
-    super
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    set_flash_message! :notice, :signed_out if signed_out
+    yield if block_given?
+    respond_to_on_destroy
   end
 
   # protected

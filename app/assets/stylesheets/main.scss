@@ -156,3 +156,24 @@
   max-width: 400px;
 }
 //End - Design for login page
+
+.previous {
+  margin-bottom: 45px;
+  a {
+    font-size: 18px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.txt3 {
+  font-family: Montserrat-Regular;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #999999;
+  a {
+    font-family: Montserrat-Regular;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}

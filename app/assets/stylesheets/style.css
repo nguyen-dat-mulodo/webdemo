@@ -8,37 +8,37 @@
 
 @font-face {
     font-family: Poppins-Regular;
-    src: url('../fonts/poppins/Poppins-Regular.ttf');
+    src: url('poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: Poppins-Medium;
-    src: url('../fonts/poppins/Poppins-Medium.ttf');
+    src: url('poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
     font-family: Poppins-Bold;
-    src: url('../fonts/poppins/Poppins-Bold.ttf');
+    src: url('poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: Poppins-SemiBold;
-    src: url('../fonts/poppins/Poppins-SemiBold.ttf');
+    src: url('poppins/Poppins-SemiBold.ttf');
 }
 
 @font-face {
     font-family: Montserrat-Bold;
-    src: url('../fonts/montserrat/Montserrat-Bold.ttf');
+    src: url('montserrat/Montserrat-Bold.ttf');
 }
 
 @font-face {
     font-family: Montserrat-SemiBold;
-    src: url('../fonts/montserrat/Montserrat-SemiBold.ttf');
+    src: url('montserrat/Montserrat-SemiBold.ttf');
 }
 
 @font-face {
     font-family: Montserrat-Regular;
-    src: url('../fonts/montserrat/Montserrat-Regular.ttf');
+    src: url('montserrat/Montserrat-Regular.ttf');
 }
 
 
@@ -1724,7 +1724,7 @@ Form login
     min-height: 100vh;
     display: block;
     background-color: #f7f7f7;
-    padding: 173px 55px 55px 55px;
+    padding: 130px 55px 55px 55px;
 }
 
 .login100-form-title {
@@ -1776,6 +1776,10 @@ Form login
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+}
+
+.label-input100 > i {
+    font-size: 14px;
 }
 
 .input100 {

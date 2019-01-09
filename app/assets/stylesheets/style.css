@@ -1725,6 +1725,7 @@ Form login
     display: block;
     background-color: #f7f7f7;
     padding: 130px 55px 55px 55px;
+    margin: auto;
 }
 
 .login100-form-title {

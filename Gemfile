@@ -42,7 +42,8 @@ gem 'bootstrap-sass'
 #Use gem for rspec
 gem 'capybara'
 #Call fake data
-gem "factory_girl_rails"
+# gem "factory_girl_rails"
+gem 'factory_bot', '~> 5.0', '>= 5.0.2'
 #Call it for test template
 gem 'rails-controller-testing'
 #Call method for view test
@@ -50,7 +51,6 @@ gem 'rspec-activemodel-mocks'
 gem 'formulaic'
 #Use gem for upload image
 gem 'paperclip'
-gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 #Use gem slim for template
 gem 'slim-rails'
@@ -73,6 +73,10 @@ gem 'delayed_job_active_record'
 #paginate
 gem 'ransack'     #tạo form tìm kiếm
 gem 'bootstrap-kaminari-views' #giao diện đẹp cho phân trang
+#ReactJS in rails
+gem 'webpacker'
+gem 'react-rails'
+gem "js-routes"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

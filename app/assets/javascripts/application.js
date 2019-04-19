@@ -19,6 +19,7 @@
 //= //require cable
 //= //require rooms
 
+//= require js-routes
 //= require bootstrap.min.js
 //= require jquery.countdown.min.js
 //= require jquery.magnific-popup.min.js

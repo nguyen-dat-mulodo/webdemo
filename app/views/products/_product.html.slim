@@ -1,5 +1,6 @@
 .product-item
-  div.item-image data-aos="fade" data-aos-delay="#{index+100}"
+  / div.item-image data-aos="fade" data-aos-delay="#{index+100}"
+  div.item-image
     = link_to(image_tag(product.image.url(:medium), alt: 'Image'), product.image.url, target: '_blank') if product.image.present?
   p.item-title
     = product.title

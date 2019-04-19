@@ -1,6 +1,8 @@
 - content_for :title do
   |  List Product
 
+= render partial: 'partials/sub_header', locals: {title: "Lists"}
+
 .wrapper-product
   = render 'partials/messages'
   = render 'product_index'

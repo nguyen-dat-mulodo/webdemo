@@ -1,3 +1,6 @@
+- content_for :title do
+  |  Product Detail
+= render 'partials/messages'
 .wrapper-product
   nav aria-label="breadcrumb"
     ol.breadcrumb
@@ -9,29 +12,5 @@
   p#notice
     = notice
   .product
-    .product-image.col-md-5
-      = link_to(image_tag(@product.image.url(:large), alt: 'Image'), @product.image.url, target: '_blank') if @product.image.present?
-    .product-detail
-      .item-title
-        = @product.title
-
-      .item-description
-        = @product.description
-
-      .item-price
-        | Price:
-        span.old-price
-          = @product.price
-        span.current-price
-          = @product.price
-        = button_to line_items_path(:product_id => @product), class: 'btn btn-default add-cart', remote: true, :format => :js do
-          span.icon-shopping-cart
-          | Add to cart
-
-      .item-action-back
-        = link_to request.referrer, class: 'btn btn-default back' do
-          span.icon-arrow_back
-          | Back to previous page
-
-
+    = react_component("Show")
 = render 'partials/side_left'

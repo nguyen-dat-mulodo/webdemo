@@ -1,4 +1,5 @@
 import React from "react"
+import Show from "./Show";
 
 class Index extends React.Component {
   constructor(props, context){
@@ -47,9 +48,9 @@ class Product extends React.Component {
       );
     });
     return(
-        <React.Fragment>
-          {products}
-        </React.Fragment>
+      <React.Fragment>
+        {products}
+      </React.Fragment>
     );
   }
 }

@@ -5,6 +5,5 @@ class HomeController < ApplicationController
 
   def post_display
     @posts = Post.includes(:user).all
-    # render "home/post"
   end
 end

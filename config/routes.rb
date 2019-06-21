@@ -16,6 +16,10 @@ Rails.application.routes.draw do
       resources :people
     end
     resources :categories, only: [:index, :show]
+    namespace :api do
+      resources :products, only: [:index, :show, :create, :destroy, :update]
+    end
+
     resources :products, concerns: :paginatable do
       collection do
         get "/gender/:status", to: 'products#product_for_gender', as: :gender, constraints: { id: /[A-Z]/ }

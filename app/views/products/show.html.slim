@@ -2,15 +2,5 @@
   |  Product Detail
 = render 'partials/messages'
 .wrapper-product
-  nav aria-label="breadcrumb"
-    ol.breadcrumb
-      li.breadcrumb-item
-        a href="#"  Home
-      li.breadcrumb-item
-        a href="#"  Products
-      li.breadcrumb-item.active aria-current="page" = @product.id
-  p#notice
-    = notice
-  .product
-    = react_component("Show")
+  = react_component("Show", id: params[:id])
 = render 'partials/side_left'

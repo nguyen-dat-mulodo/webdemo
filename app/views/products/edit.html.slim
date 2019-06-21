@@ -4,13 +4,13 @@
 .page-header
   h1
     | Editing Product
+  = react_component("Edit", id: params[:id])
+/ = render 'form', product: @product
 
-= render 'form', product: @product
-
-= link_to @product, class: 'btn btn-default' do
-  span.glyphicon.glyphicon-list-alt
-  |  Show
-
-= link_to products_path, class: 'btn btn-default' do
-  span.glyphicon.glyphicon-list-alt
-  |  Back
+/ = link_to @product, class: 'btn btn-default' do
+/   span.glyphicon.glyphicon-list-alt
+/   |  Show
+/
+/ = link_to products_path, class: 'btn btn-default' do
+/   span.glyphicon.glyphicon-list-alt
+/   |  Back

@@ -10,7 +10,7 @@ class Index extends React.Component {
   }
 
   componentDidMount(){
-    fetch(Routes.root_path({format: 'json'}))
+    fetch(Routes.api_products_path({format: 'json'}))
         .then((response) => {return response.json()})
         .then((data) => {this.setState({ products: data }) });
   }

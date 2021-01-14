@@ -65,7 +65,7 @@ gem 'axlsx_rails'
 #Use for authentication
 gem 'devise'
 #Use for admin authentication
-gem "rails_admin", "~> 1.2"
+gem "rails_admin", "~> 1.4"
 #Use for ENV
 gem 'figaro'
 #Use for jobs send mail
